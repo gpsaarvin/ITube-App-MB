@@ -201,7 +201,13 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       SizedBox(
                         width: double.infinity,
                         child: OutlinedButton(
-                          onPressed: null,
+                          onPressed: () {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text('Email sign-in is coming soon.'),
+                              ),
+                            );
+                          },
                           style: OutlinedButton.styleFrom(
                             padding: const EdgeInsets.symmetric(vertical: 16),
                             shape: RoundedRectangleBorder(
