@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../../core/constants/app_colors.dart';
+import '../../../core/widgets/keyboard_dismiss.dart';
 import '../../../core/utils/content_filter.dart';
 import '../../../core/widgets/loading_skeleton.dart';
 import '../data/roadmap_repository.dart';
@@ -84,37 +85,39 @@ class _RoadmapGenerateScreenState
               icon: const Icon(Icons.bookmark_add),
               label: const Text('Save to Library'),
             ),
-      body: ListView(
-        padding: const EdgeInsets.all(16),
-        children: [
-          Row(
-            children: [
-              Expanded(
-                child: TextField(
-                  controller: _controller,
-                  textInputAction: TextInputAction.search,
-                  onSubmitted: (_) => _generate(),
-                  decoration: const InputDecoration(
-                    hintText: 'Enter a topic to build a roadmap',
-                    prefixIcon: Icon(Icons.auto_awesome),
+      body: KeyboardDismiss(
+        child: ListView(
+          padding: const EdgeInsets.all(16),
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  child: TextField(
+                    controller: _controller,
+                    textInputAction: TextInputAction.search,
+                    onSubmitted: (_) => _generate(),
+                    decoration: const InputDecoration(
+                      hintText: 'Enter a topic to build a roadmap',
+                      prefixIcon: Icon(Icons.auto_awesome),
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(width: 12),
-              ElevatedButton(
-                onPressed: _generate,
-                child: const Text('Generate'),
-              ),
-            ],
-          ),
-          const SizedBox(height: 24),
-          if (roadmapAsync.isLoading) _loadingSection(context),
-          if (roadmapAsync.hasError)
-            _errorSection(context, roadmapAsync.error.toString()),
-          if (!roadmapAsync.isLoading && roadmap == null)
-            _emptyPrompt(context),
-          if (roadmap != null) _roadmapSection(context, roadmap),
-        ],
+                const SizedBox(width: 12),
+                ElevatedButton(
+                  onPressed: _generate,
+                  child: const Text('Generate'),
+                ),
+              ],
+            ),
+            const SizedBox(height: 24),
+            if (roadmapAsync.isLoading) _loadingSection(context),
+            if (roadmapAsync.hasError)
+              _errorSection(context, roadmapAsync.error.toString()),
+            if (!roadmapAsync.isLoading && roadmap == null)
+              _emptyPrompt(context),
+            if (roadmap != null) _roadmapSection(context, roadmap),
+          ],
+        ),
       ),
     );
   }

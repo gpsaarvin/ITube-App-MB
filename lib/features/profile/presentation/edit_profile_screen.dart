@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../data/profile_repository.dart';
+import '../../../core/widgets/keyboard_dismiss.dart';
 import '../domain/user_profile_model.dart';
 
 class EditProfileScreen extends ConsumerStatefulWidget {
@@ -100,71 +101,73 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
             return const Center(child: Text('Profile not available.'));
           }
           _initialize(profile);
-          return ListView(
-            padding: const EdgeInsets.all(16),
-            children: [
-              Center(
-                child: Stack(
-                  children: [
-                    CircleAvatar(
-                      radius: 48,
-                      backgroundImage: _selectedImage != null
-                          ? FileImage(
-                              File(_selectedImage!.path),
-                            )
-                          : profile.photoURL.isNotEmpty
-                              ? NetworkImage(profile.photoURL) as ImageProvider
-                              : null,
-                      child: profile.photoURL.isEmpty && _selectedImage == null
-                          ? const Icon(Icons.person, size: 40)
-                          : null,
-                    ),
-                    Positioned(
-                      bottom: 0,
-                      right: 0,
-                      child: IconButton(
-                        onPressed: _pickImage,
-                        icon: const Icon(Icons.camera_alt),
+          return KeyboardDismiss(
+            child: ListView(
+              padding: const EdgeInsets.all(16),
+              children: [
+                Center(
+                  child: Stack(
+                    children: [
+                      CircleAvatar(
+                        radius: 48,
+                        backgroundImage: _selectedImage != null
+                            ? FileImage(
+                                File(_selectedImage!.path),
+                              )
+                            : profile.photoURL.isNotEmpty
+                                ? NetworkImage(profile.photoURL) as ImageProvider
+                                : null,
+                        child: profile.photoURL.isEmpty && _selectedImage == null
+                            ? const Icon(Icons.person, size: 40)
+                            : null,
                       ),
-                    ),
-                  ],
+                      Positioned(
+                        bottom: 0,
+                        right: 0,
+                        child: IconButton(
+                          onPressed: _pickImage,
+                          icon: const Icon(Icons.camera_alt),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              const SizedBox(height: 16),
-              TextField(
-                controller: _nameController,
-                decoration: const InputDecoration(labelText: 'Name'),
-              ),
-              const SizedBox(height: 12),
-              TextField(
-                controller: _usernameController,
-                decoration: const InputDecoration(labelText: 'Username'),
-              ),
-              const SizedBox(height: 12),
-              TextField(
-                controller: _phoneController,
-                decoration: const InputDecoration(labelText: 'Phone'),
-              ),
-              const SizedBox(height: 12),
-              TextField(
-                controller: _countryController,
-                decoration: const InputDecoration(labelText: 'Country'),
-              ),
-              const SizedBox(height: 20),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: _saving ? null : () => _save(profile),
-                  child: _saving
-                      ? const SizedBox(
-                          height: 20,
-                          width: 20,
-                          child: CircularProgressIndicator(strokeWidth: 2),
-                        )
-                      : const Text('Save Changes'),
+                const SizedBox(height: 16),
+                TextField(
+                  controller: _nameController,
+                  decoration: const InputDecoration(labelText: 'Name'),
                 ),
-              ),
-            ],
+                const SizedBox(height: 12),
+                TextField(
+                  controller: _usernameController,
+                  decoration: const InputDecoration(labelText: 'Username'),
+                ),
+                const SizedBox(height: 12),
+                TextField(
+                  controller: _phoneController,
+                  decoration: const InputDecoration(labelText: 'Phone'),
+                ),
+                const SizedBox(height: 12),
+                TextField(
+                  controller: _countryController,
+                  decoration: const InputDecoration(labelText: 'Country'),
+                ),
+                const SizedBox(height: 20),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: _saving ? null : () => _save(profile),
+                    child: _saving
+                        ? const SizedBox(
+                            height: 20,
+                            width: 20,
+                            child: CircularProgressIndicator(strokeWidth: 2),
+                          )
+                        : const Text('Save Changes'),
+                  ),
+                ),
+              ],
+            ),
           );
         },
         loading: () => const Center(child: CircularProgressIndicator()),
