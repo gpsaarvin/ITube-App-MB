@@ -88,6 +88,20 @@ class ResumeAnalysisModel {
     };
   }
 
+  Map<String, dynamic> toReportJson() {
+    return {
+      'userId': userId,
+      'fileName': fileName,
+      'jobRole': jobRole,
+      'analyzedAt': analyzedAt.toIso8601String(),
+      'score': score,
+      'strengths': strengths,
+      'weaknesses': weaknesses,
+      'missingKeywords': missingKeywords,
+      'suggestions': suggestions,
+    };
+  }
+
   static DateTime _readDate(dynamic value) {
     if (value is Timestamp) {
       return value.toDate();

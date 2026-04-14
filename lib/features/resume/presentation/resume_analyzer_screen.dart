@@ -208,7 +208,8 @@ class _ResumeAnalyzerScreenState
                         SizedBox(
                           width: double.infinity,
                           child: OutlinedButton.icon(
-                            onPressed: () => _downloadReport(analysis.toJson()),
+                            onPressed: () =>
+                                _downloadReport(analysis.toReportJson()),
                             icon: const Icon(Icons.download),
                             label: const Text('Download Report'),
                           ),
