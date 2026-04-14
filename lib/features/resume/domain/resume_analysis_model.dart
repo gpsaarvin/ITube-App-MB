@@ -25,6 +25,32 @@ class ResumeAnalysisModel {
   final List<String> missingKeywords;
   final List<String> suggestions;
 
+  ResumeAnalysisModel copyWith({
+    String? id,
+    String? userId,
+    String? fileName,
+    String? jobRole,
+    DateTime? analyzedAt,
+    int? score,
+    List<String>? strengths,
+    List<String>? weaknesses,
+    List<String>? missingKeywords,
+    List<String>? suggestions,
+  }) {
+    return ResumeAnalysisModel(
+      id: id ?? this.id,
+      userId: userId ?? this.userId,
+      fileName: fileName ?? this.fileName,
+      jobRole: jobRole ?? this.jobRole,
+      analyzedAt: analyzedAt ?? this.analyzedAt,
+      score: score ?? this.score,
+      strengths: strengths ?? this.strengths,
+      weaknesses: weaknesses ?? this.weaknesses,
+      missingKeywords: missingKeywords ?? this.missingKeywords,
+      suggestions: suggestions ?? this.suggestions,
+    );
+  }
+
   factory ResumeAnalysisModel.fromJson(Map<String, dynamic> json, String id) {
     return ResumeAnalysisModel(
       id: id,
