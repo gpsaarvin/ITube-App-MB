@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -22,24 +24,20 @@ final appRouterProvider = Provider<GoRouter>((ref) {
   return GoRouter(
     navigatorKey: _rootNavigatorKey,
     initialLocation: '/splash',
-    refreshListenable: GoRouterRefreshStream(ref.watch(authStateProvider.stream)),
+    refreshListenable: GoRouterRefreshStream(
+      ref.watch(authStateProvider.stream),
+    ),
     routes: [
       GoRoute(
         path: '/splash',
         builder: (context, state) => const SplashScreen(),
       ),
-      GoRoute(
-        path: '/login',
-        builder: (context, state) => const LoginScreen(),
-      ),
+      GoRoute(path: '/login', builder: (context, state) => const LoginScreen()),
       ShellRoute(
         navigatorKey: _shellNavigatorKey,
         builder: (context, state, child) => AppShell(child: child),
         routes: [
-          GoRoute(
-            path: '/',
-            builder: (context, state) => const HomeScreen(),
-          ),
+          GoRoute(path: '/', builder: (context, state) => const HomeScreen()),
           GoRoute(
             path: '/resume',
             builder: (context, state) => const ResumeAnalyzerScreen(),
@@ -69,13 +67,20 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: '/roadmap/:id',
         parentNavigatorKey: _rootNavigatorKey,
-        builder: (context, state) => RoadmapDetailScreen(
-          roadmapId: state.pathParameters['id'] ?? '',
-        ),
+        builder: (context, state) =>
+            RoadmapDetailScreen(roadmapId: state.pathParameters['id'] ?? ''),
       ),
     ],
     redirect: (context, state) {
-      final location = state.uri.path;
+      final uri = state.uri;
+      if (uri.scheme == 'itubelearn' && uri.host == 'roadmap') {
+        final id = uri.pathSegments.isNotEmpty ? uri.pathSegments.first : '';
+        if (id.isNotEmpty) {
+          return '/roadmap/$id';
+        }
+      }
+
+      final location = uri.path;
       final isSplash = location == '/splash';
       if (isSplash) return null;
       final isLogin = location == '/login';

@@ -20,47 +20,172 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
     super.initState();
     _navigate();
   }
+      final theme = Theme.of(context);
 
-  Future<void> _navigate() async {
-    await Future.delayed(const Duration(seconds: 2));
-    if (!mounted) return;
-    final authState = ref.read(authStateProvider).valueOrNull;
-    final user = authState ?? FirebaseAuth.instance.currentUser;
-    if (user == null) {
-      context.go('/login');
-    } else {
-      context.go('/');
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        body: Stack(
           children: [
-            SizedBox(
-              height: 180,
-              child: Lottie.network(
-                'https://assets6.lottiefiles.com/packages/lf20_q5pk6p1k.json',
+            Container(
+              decoration: BoxDecoration(
+                gradient: RadialGradient(
+                  center: Alignment.center,
+                  radius: 1.1,
+                  colors: [
+                    AppColors.surfaceContainer,
+                    AppColors.darkBackground,
+                  ],
+                ),
               ),
             ),
-            const SizedBox(height: 16),
-            Text(
-              'iTube Learn',
-              style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                    color: AppColors.primary,
-                    fontWeight: FontWeight.w700,
+            Positioned(
+              top: MediaQuery.of(context).size.height * 0.2,
+              left: MediaQuery.of(context).size.width * 0.5 - 250,
+              child: Container(
+                height: 500,
+                width: 500,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: AppColors.primary.withOpacity(0.08),
+                ),
+              ),
+            ),
+            Positioned(
+              top: 40,
+              left: 24,
+              child: Container(
+                height: 120,
+                width: 120,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(
+                    color: AppColors.outlineVariant.withOpacity(0.2),
                   ),
+                ),
+              ),
+            ),
+            Positioned(
+              bottom: 120,
+              right: -40,
+              child: Container(
+                height: 220,
+                width: 220,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(
+                    color: AppColors.outlineVariant.withOpacity(0.15),
+                  ),
+                ),
+              ),
+            ),
+            Center(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Container(
+                        height: 110,
+                        width: 110,
+                        decoration: BoxDecoration(
+                          gradient: const LinearGradient(
+                            colors: [AppColors.primary, AppColors.primaryDim],
+                          ),
+                          borderRadius: BorderRadius.circular(28),
+                          boxShadow: [
+                            BoxShadow(
+                              color: AppColors.primary.withOpacity(0.25),
+                              blurRadius: 30,
+                              offset: const Offset(0, 12),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Icon(
+                        Icons.school,
+                        size: 86,
+                        color: Colors.white.withOpacity(0.15),
+                      ),
+                      const Icon(
+                        Icons.play_arrow,
+                        size: 52,
+                        color: Colors.white,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 28),
+                  Text(
+                    'iTube Learn',
+                    style: theme.textTheme.headlineMedium?.copyWith(
+                      fontWeight: FontWeight.w800,
+                      color: Colors.white,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    'Learn anything. Watch everything.',
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      color: AppColors.mutedText,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Positioned(
+              left: 0,
+              right: 0,
+              bottom: 56,
+              child: Column(
+                children: [
+                  Container(
+                    height: 4,
+                    width: 220,
+                    decoration: BoxDecoration(
+                      color: AppColors.surfaceContainerHighest,
+                      borderRadius: BorderRadius.circular(999),
+                    ),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Container(
+                        width: 160,
+                        decoration: BoxDecoration(
+                          gradient: const LinearGradient(
+                            colors: [AppColors.primary, AppColors.secondary],
+                          ),
+                          borderRadius: BorderRadius.circular(999),
+                          boxShadow: [
+                            BoxShadow(
+                              color: AppColors.primary.withOpacity(0.4),
+                              blurRadius: 12,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  Text(
+                    'Initializing Intelligence'.toUpperCase(),
+                    style: theme.textTheme.labelSmall?.copyWith(
+                      color: AppColors.outline,
+                      letterSpacing: 2,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+              style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                color: AppColors.primary,
+                fontWeight: FontWeight.w700,
+              ),
             ),
             const SizedBox(height: 8),
             Text(
               'Designing your learning path',
-              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: AppColors.mutedText,
-                  ),
+              style: Theme.of(
+                context,
+              ).textTheme.bodyMedium?.copyWith(color: AppColors.mutedText),
             ),
           ],
         ),

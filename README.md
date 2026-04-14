@@ -1,16 +1,32 @@
-# itube_learn
+# iTube Learn
 
-A new Flutter project.
+iTube Learn is an AI-powered learning platform that generates structured
+roadmaps and matches YouTube tutorials for each topic.
 
-## Getting Started
+## Setup
 
-This project is a starting point for a Flutter application.
+1. Install Flutter 3.x and ensure `flutter doctor` is green.
+2. Install dependencies:
+	 ```bash
+	 flutter pub get
+	 ```
+3. Firebase setup:
+	 - Go to the Firebase Console project **ai-road-map-80d4a**.
+	 - Download **google-services.json** and place it at
+		 `android/app/google-services.json`.
+	 - Download **GoogleService-Info.plist** and place it at
+		 `ios/Runner/GoogleService-Info.plist`.
+	 - The web API key is **AIzaSyCjXsd4daIOv3sgACBamoATYzJFksHSkkI** (already
+		 embedded in code).
 
-A few resources to get you started if this is your first Flutter project:
+## Run
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+```bash
+flutter run
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Notes
+
+- Firestore rules are defined in `firestore.rules`.
+- OpenRouter and YouTube API keys are hardcoded in
+	`lib/core/constants/api_constants.dart` as requested.

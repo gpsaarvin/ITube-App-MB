@@ -33,7 +33,7 @@ class AppShell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final location = GoRouter.of(context).location;
+    final location = GoRouterState.of(context).uri.path;
     final currentIndex = _locationToIndex(location);
 
     return GestureDetector(
@@ -42,37 +42,106 @@ class AppShell extends StatelessWidget {
       onPanDown: (_) => FocusScope.of(context).unfocus(),
       child: Scaffold(
         body: child,
-        bottomNavigationBar: Container(
-          decoration: const BoxDecoration(
-            border: Border(top: BorderSide(color: AppColors.border)),
+        bottomNavigationBar: SafeArea(
+          top: false,
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+            decoration: BoxDecoration(
+              color: AppColors.surfaceContainerLow,
+              border: const Border(
+                top: BorderSide(color: AppColors.outlineVariant),
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.4),
+                  blurRadius: 16,
+                  offset: const Offset(0, -4),
+                ),
+              ],
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                _NavItem(
+                  label: 'Home',
+                  isActive: currentIndex == 0,
+                  icon: Icons.home_outlined,
+                  activeIcon: Icons.home,
+                  onTap: () => _onTap(context, 0),
+                ),
+                _NavItem(
+                  label: 'Resume',
+                  isActive: currentIndex == 1,
+                  icon: Icons.play_circle_outline,
+                  activeIcon: Icons.play_circle,
+                  onTap: () => _onTap(context, 1),
+                ),
+                _NavItem(
+                  label: 'Library',
+                  isActive: currentIndex == 2,
+                  icon: Icons.video_library_outlined,
+                  activeIcon: Icons.video_library,
+                  onTap: () => _onTap(context, 2),
+                ),
+                _NavItem(
+                  label: 'Profile',
+                  isActive: currentIndex == 3,
+                  icon: Icons.person_outline,
+                  activeIcon: Icons.person,
+                  onTap: () => _onTap(context, 3),
+                ),
+              ],
+            ),
           ),
-          child: BottomNavigationBar(
-            currentIndex: currentIndex,
-            type: BottomNavigationBarType.fixed,
-            onTap: (index) => _onTap(context, index),
-            items: const [
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home_outlined),
-                activeIcon: Icon(Icons.home),
-                label: 'Home',
+        ),
+      ),
+    );
+  }
+}
+
+class _NavItem extends StatelessWidget {
+  const _NavItem({
+    required this.label,
+    required this.isActive,
+    required this.icon,
+    required this.activeIcon,
+    required this.onTap,
+  });
+
+  final String label;
+  final bool isActive;
+  final IconData icon;
+  final IconData activeIcon;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final color = isActive ? AppColors.primary : AppColors.mutedText;
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(12),
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 200),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+        decoration: BoxDecoration(
+          color: isActive ? AppColors.surfaceContainer : Colors.transparent,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(isActive ? activeIcon : icon, size: 20, color: color),
+            const SizedBox(height: 2),
+            Text(
+              label.toUpperCase(),
+              style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                fontSize: 10,
+                fontWeight: FontWeight.w600,
+                letterSpacing: 0.8,
+                color: color,
               ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.assignment_outlined),
-                activeIcon: Icon(Icons.assignment),
-                label: 'Resume',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.video_library_outlined),
-                activeIcon: Icon(Icons.video_library),
-                label: 'Library',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.person_outline),
-                activeIcon: Icon(Icons.person),
-                label: 'Profile',
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

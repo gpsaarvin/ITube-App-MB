@@ -39,7 +39,6 @@ class ThemePreference {
       case ThemeMode.dark:
         return 'dark';
       case ThemeMode.system:
-      default:
         return 'system';
     }
   }
@@ -73,7 +72,7 @@ class AppTheme {
         onSurface: Color(0xFF111827),
         background: AppColors.lightBackground,
         onBackground: Color(0xFF111827),
-        error: Color(0xFFEF4444),
+        error: AppColors.error,
         onError: Colors.white,
       ),
       scaffoldBackgroundColor: AppColors.lightBackground,
@@ -84,7 +83,7 @@ class AppTheme {
         foregroundColor: Color(0xFF111827),
         centerTitle: false,
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         elevation: 0,
         color: AppColors.lightSurface,
         shape: RoundedRectangleBorder(
@@ -120,7 +119,9 @@ class AppTheme {
 
   static ThemeData get darkTheme {
     final baseText = GoogleFonts.interTextTheme(ThemeData.dark().textTheme);
-    final headingText = GoogleFonts.poppinsTextTheme(ThemeData.dark().textTheme);
+    final headingText = GoogleFonts.poppinsTextTheme(
+      ThemeData.dark().textTheme,
+    );
     final textTheme = baseText.copyWith(
       displayLarge: headingText.displayLarge,
       displayMedium: headingText.displayMedium,
@@ -141,11 +142,11 @@ class AppTheme {
         onPrimary: Colors.white,
         secondary: AppColors.secondary,
         onSecondary: Colors.white,
-        surface: AppColors.darkSurface,
-        onSurface: Color(0xFFE5E7EB),
+        surface: AppColors.surfaceContainer,
+        onSurface: Color(0xFFFFFFFF),
         background: AppColors.darkBackground,
-        onBackground: Color(0xFFE5E7EB),
-        error: Color(0xFFF87171),
+        onBackground: Color(0xFFFFFFFF),
+        error: AppColors.error,
         onError: Colors.black,
       ),
       scaffoldBackgroundColor: AppColors.darkBackground,
@@ -153,34 +154,34 @@ class AppTheme {
       appBarTheme: const AppBarTheme(
         backgroundColor: AppColors.darkBackground,
         elevation: 0,
-        foregroundColor: Color(0xFFE5E7EB),
+        foregroundColor: Color(0xFFFFFFFF),
         centerTitle: false,
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         elevation: 0,
-        color: AppColors.darkSurface,
+        color: AppColors.surfaceContainer,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
-          side: const BorderSide(color: Color(0xFF2D2D2D)),
+          side: const BorderSide(color: AppColors.outlineVariant),
         ),
       ),
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
-        fillColor: AppColors.darkSurface,
+        fillColor: AppColors.surfaceContainerLow,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: Color(0xFF2D2D2D)),
+          borderSide: const BorderSide(color: AppColors.outlineVariant),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: Color(0xFF2D2D2D)),
+          borderSide: const BorderSide(color: AppColors.outlineVariant),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: const BorderSide(color: AppColors.primary, width: 1.5),
         ),
       ),
-      dividerColor: const Color(0xFF2D2D2D),
+      dividerColor: AppColors.outlineVariant,
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         elevation: 0,
         selectedItemColor: AppColors.primary,

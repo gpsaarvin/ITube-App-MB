@@ -9,16 +9,12 @@ import 'firebase_options.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   GoogleFonts.config.allowRuntimeFetching = false;
   final themeMode = await ThemePreference.loadThemeMode();
   runApp(
     ProviderScope(
-      overrides: [
-        themeModeProvider.overrideWithValue(StateController(themeMode)),
-      ],
+      overrides: [themeModeProvider.overrideWith((ref) => themeMode)],
       child: const ITubeLearnApp(),
     ),
   );
