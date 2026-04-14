@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>iTube Learn - Splash</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#20201f",
+                    "surface-container-low": "#131313",
+                    "primary": "#a8a4ff",
+                    "primary-dim": "#675df9",
+                    "error-container": "#a70138",
+                    "tertiary-container": "#f8a826",
+                    "on-secondary": "#005f26",
+                    "error": "#ff6e84",
+                    "on-primary-container": "#16007d",
+                    "background": "#0e0e0e",
+                    "on-primary-fixed-variant": "#1d0098",
+                    "inverse-primary": "#5044e3",
+                    "primary-fixed": "#9995ff",
+                    "secondary-dim": "#63ef82",
+                    "tertiary-dim": "#e89b14",
+                    "surface-tint": "#a8a4ff",
+                    "on-surface": "#ffffff",
+                    "primary-container": "#9995ff",
+                    "primary-fixed-dim": "#8a85ff",
+                    "on-primary": "#1e009f",
+                    "on-error": "#490013",
+                    "secondary-container": "#006e2d",
+                    "outline": "#767575",
+                    "inverse-surface": "#fcf9f8",
+                    "surface-dim": "#0e0e0e",
+                    "on-secondary-fixed": "#004a1c",
+                    "on-tertiary": "#5a3900",
+                    "outline-variant": "#484847",
+                    "surface-variant": "#262626",
+                    "inverse-on-surface": "#565555",
+                    "on-tertiary-fixed-variant": "#593800",
+                    "on-surface-variant": "#adaaaa",
+                    "on-background": "#ffffff",
+                    "on-tertiary-fixed": "#301c00",
+                    "tertiary-fixed-dim": "#e89b14",
+                    "on-secondary-fixed-variant": "#006a2b",
+                    "on-primary-fixed": "#000000",
+                    "error-dim": "#d73357",
+                    "surface-container": "#1a1a1a",
+                    "surface": "#0e0e0e",
+                    "secondary-fixed": "#72fe8f",
+                    "tertiary-fixed": "#f8a826",
+                    "secondary": "#72fe8f",
+                    "surface-container-lowest": "#000000",
+                    "on-error-container": "#ffb2b9",
+                    "surface-container-highest": "#262626",
+                    "surface-bright": "#2c2c2c",
+                    "on-tertiary-container": "#4e3000",
+                    "secondary-fixed-dim": "#63ef82",
+                    "on-secondary-container": "#e4ffe1",
+                    "tertiary": "#ffb955"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-splash-gradient {
+            background: radial-gradient(circle at center, #1a1a1a 0%, #0e0e0e 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body antialiased selection:bg-primary selection:text-on-primary">
+<!-- Splash Screen Container -->
+<main class="relative h-screen w-full flex flex-col items-center justify-center bg-splash-gradient overflow-hidden">
+<!-- Background Ambient Glow -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full"></div>
+<!-- Content Shell -->
+<div class="relative z-10 flex flex-col items-center text-center space-y-8">
+<!-- Logo Concept: Play button + Graduation Cap -->
+<div class="relative flex items-center justify-center">
+<!-- Outer Glow -->
+<div class="absolute inset-0 bg-primary/20 blur-2xl rounded-full scale-110"></div>
+<!-- Main Icon Housing -->
+<div class="relative w-24 h-24 bg-gradient-to-br from-primary to-primary-dim rounded-2xl flex items-center justify-center shadow-lg shadow-primary/20 overflow-hidden">
+<!-- Graduation Cap Icon -->
+<span class="material-symbols-outlined absolute text-on-background/20 text-7xl translate-y-[-10px] select-none" style="font-variation-settings: 'FILL' 1;">
+                        school
+                    </span>
+<!-- Play Arrow Overlay -->
+<span class="material-symbols-outlined text-on-background text-5xl relative z-10 drop-shadow-md select-none" style="font-variation-settings: 'FILL' 1;">
+                        play_arrow
+                    </span>
+</div>
+</div>
+<!-- Brand Identity -->
+<div class="flex flex-col space-y-2">
+<h1 class="font-headline font-extrabold text-4xl md:text-5xl tracking-tighter text-on-background">
+                    iTube Learn
+                </h1>
+<p class="font-body text-on-surface-variant text-base md:text-lg tracking-wide opacity-80">
+                    Learn anything. Watch everything.
+                </p>
+</div>
+</div>
+<!-- Footer / Progress Area -->
+<div class="absolute bottom-16 left-0 right-0 w-full px-12 md:px-0 flex flex-col items-center">
+<!-- Progress Bar Shell -->
+<div class="w-full max-w-xs h-[3px] bg-surface-container-highest rounded-full overflow-hidden">
+<!-- AI Thinking Gradient Progress -->
+<div class="h-full w-2/3 bg-gradient-to-r from-primary to-secondary rounded-full shadow-[0_0_8px_rgba(168,164,255,0.4)]"></div>
+</div>
+<!-- Optional Sub-label -->
+<span class="mt-6 font-label text-[10px] text-outline tracking-[0.2em] uppercase font-semibold">
+                Initializing Intelligence
+            </span>
+</div>
+<!-- Decorative Elements -->
+<div class="absolute top-0 left-0 w-full h-full pointer-events-none">
+<div class="absolute top-10 left-10 w-32 h-32 border border-outline-variant/10 rounded-full"></div>
+<div class="absolute bottom-20 right-[-20px] w-64 h-64 border border-outline-variant/5 rounded-full"></div>
+</div>
+</main>
+<!-- Semantic Shell Suppression Logic: 
+         This is a Splash Screen (Transactional/Linear), 
+         therefore TopAppBar and BottomNavBar are suppressed. 
+    -->
+</body></html>

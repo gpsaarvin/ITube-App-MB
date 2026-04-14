@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Roadmap Generator - iTube Learn</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-high": "#20201f",
+                      "surface-container-low": "#131313",
+                      "primary": "#a8a4ff",
+                      "primary-dim": "#675df9",
+                      "error-container": "#a70138",
+                      "tertiary-container": "#f8a826",
+                      "on-secondary": "#005f26",
+                      "error": "#ff6e84",
+                      "on-primary-container": "#16007d",
+                      "background": "#0e0e0e",
+                      "on-primary-fixed-variant": "#1d0098",
+                      "inverse-primary": "#5044e3",
+                      "primary-fixed": "#9995ff",
+                      "secondary-dim": "#63ef82",
+                      "tertiary-dim": "#e89b14",
+                      "surface-tint": "#a8a4ff",
+                      "on-surface": "#ffffff",
+                      "primary-container": "#9995ff",
+                      "primary-fixed-dim": "#8a85ff",
+                      "on-primary": "#1e009f",
+                      "on-error": "#490013",
+                      "secondary-container": "#006e2d",
+                      "outline": "#767575",
+                      "inverse-surface": "#fcf9f8",
+                      "surface-dim": "#0e0e0e",
+                      "on-secondary-fixed": "#004a1c",
+                      "on-tertiary": "#5a3900",
+                      "outline-variant": "#484847",
+                      "surface-variant": "#262626",
+                      "inverse-on-surface": "#565555",
+                      "on-tertiary-fixed-variant": "#593800",
+                      "on-surface-variant": "#adaaaa",
+                      "on-background": "#ffffff",
+                      "on-tertiary-fixed": "#301c00",
+                      "tertiary-fixed-dim": "#e89b14",
+                      "on-secondary-fixed-variant": "#006a2b",
+                      "on-primary-fixed": "#000000",
+                      "error-dim": "#d73357",
+                      "surface-container": "#1a1a1a",
+                      "surface": "#0e0e0e",
+                      "secondary-fixed": "#72fe8f",
+                      "tertiary-fixed": "#f8a826",
+                      "secondary": "#72fe8f",
+                      "surface-container-lowest": "#000000",
+                      "on-error-container": "#ffb2b9",
+                      "surface-container-highest": "#262626",
+                      "surface-bright": "#2c2c2c",
+                      "on-tertiary-container": "#4e3000",
+                      "secondary-fixed-dim": "#63ef82",
+                      "on-secondary-container": "#e4ffe1",
+                      "tertiary": "#ffb955"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Plus Jakarta Sans"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="bg-[#0e0e0e] text-[#a8a4ff] font-['Plus_Jakarta_Sans'] font-bold text-lg leading-[1.6x] docked full-width top-0 sticky z-50 bg-[#131313] flat no shadows flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/20">
+<img alt="user profile picture" class="w-full h-full object-cover" data-alt="close-up portrait of a professional student with soft lighting and a blurred library background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtCGaLDoOdKXfdlm-KwsrpfIHP24wA4P7r_AaKA2gHdpgO5wnwHSB5sZXiipBSEu4iNMt9TuZB6WviX4Wo_yMU_DHJynLaCqKfFaS5OFBJJnVT7u1vfcvqzV-wjM1gepC03Ryib4IOn8D3wPF4OpPIqwk7iH5hx-vWW4hfOXl2IFVLzIOVb-NvHL-Obr3493v-b_Ou4-4ejYHWXRckLzdCbbzmU5c8fr1DXb44QUCZ34Q8S5bXzfQ-00GlhYfrppmpbjUUaaXHA5XO"/>
+</div>
+<span class="text-xl font-bold text-[#a8a4ff] tracking-tight">iTube Learn</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-[#1a1a1a] transition-colors scale-95 active:duration-150">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+</div>
+</header>
+<main class="max-w-4xl mx-auto px-6 py-8">
+<!-- Search and Intent -->
+<section class="mb-12">
+<h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-on-surface">
+                Mastering <span class="bg-gradient-to-r from-primary to-primary-dim bg-clip-text text-transparent">Digital Illustration</span>
+</h1>
+<p class="text-on-surface-variant text-lg mb-8 max-w-2xl leading-relaxed">
+                We've curated an accelerated 6-phase roadmap using the best YouTube resources to take you from hobbyist to professional.
+            </p>
+<!-- AI Progress Indicator -->
+<div class="bg-surface-container rounded-xl p-1 mb-10 overflow-hidden">
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full w-2/3 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
+</div>
+<div class="flex justify-between items-center mt-3 px-1">
+<span class="text-xs font-label uppercase tracking-wider text-primary">Curating Phase 4: Color Theory</span>
+<span class="text-xs font-label uppercase tracking-wider text-on-surface-variant">68% Complete</span>
+</div>
+</div>
+</section>
+<!-- Roadmap Phases - Bento Layout Style -->
+<div class="grid grid-cols-1 gap-6">
+<!-- Phase 1: Expanded -->
+<div class="bg-surface-container rounded-xl p-6 transition-all border-l-4 border-primary">
+<div class="flex justify-between items-start mb-6">
+<div>
+<span class="text-[10px] font-label uppercase tracking-[0.1em] text-primary font-bold">Phase 01</span>
+<h2 class="text-2xl font-bold mt-1">Foundation &amp; Linework</h2>
+</div>
+<span class="material-symbols-outlined text-primary" data-icon="expand_less">expand_less</span>
+</div>
+<div class="space-y-4">
+<!-- Resource Item 1 -->
+<div class="flex gap-4 p-3 rounded-lg hover:bg-surface-container-highest transition-colors group">
+<div class="w-32 h-20 flex-shrink-0 rounded-md overflow-hidden relative">
+<img alt="Linework Thumbnail" class="w-full h-full object-cover" data-alt="cinematic video thumbnail showing a digital artist drawing crisp lines on a tablet with vibrant blue light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2Ows1eauhBe1ku-ixvNCGG_Tzrk_l0RY9EO2wa-kjOTx92cReQCgUfcqL2qHH6Ih98SiIHt_od3f_p4nR-lWicIHfjgGLM1gDHfcilIr1_rM0tuYuBdCgZ8XKjFvsIUYb9Z6i8IPrwlmWvsvfq9jxEjBozsKkgzSpAPW7a8VWYf8IAk9MT4f26jNdsCjdpFwKhfZ3H60hkBfOQCsTgcXh8JITuHEDrCslzI3Wn8xnTNONAgM5uvvvuCqaeW2jBERqPpjrSDmMHcIh"/>
+<div class="absolute bottom-1 right-1 bg-black/80 text-[10px] px-1 rounded text-white">12:45</div>
+</div>
+<div class="flex-grow">
+<h3 class="font-bold text-on-surface leading-tight group-hover:text-primary transition-colors">Mastering Smooth Digital Inking</h3>
+<p class="text-sm text-on-surface-variant mt-1 line-clamp-1 italic">The primary secret to stabilizer settings and pressure curves.</p>
+<div class="flex items-center gap-3 mt-2">
+<span class="text-[10px] bg-surface-container-highest px-2 py-0.5 rounded text-on-surface-variant">Proko</span>
+<span class="text-[10px] text-on-surface-variant">452K views</span>
+</div>
+</div>
+<button class="self-center p-2 rounded-full hover:bg-primary/10 text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+<!-- Resource Item 2 -->
+<div class="flex gap-4 p-3 rounded-lg hover:bg-surface-container-highest transition-colors group">
+<div class="w-32 h-20 flex-shrink-0 rounded-md overflow-hidden relative">
+<img alt="Sketching Thumbnail" class="w-full h-full object-cover" data-alt="macro view of a digital stylus touching a screen, creating a glowing sketch of a character face" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfxoQ-OwyVHYAsVVOksIft3j8tTsE3d7oUxiD_CLt5BCl-_RpzTjjnNbuRbsUl6lHg-XCucoR_WQiEfwKXw3_2jOex0Xgukg-OlhFN0EbJnNtJx4dDMy8IpgZbmmS-GHHJ4tfmhoYG5PHZ-fPi2R9tMgHIgKGGpT22fNjRTj-k8ClCFwln4gh5fD_C8qZ5kK6QqWebnwGUtpwP5LnMpQDt_G8G3IQX9rCw2i648KpcEEryhvpMYiZSYN7VmFveiD7DjcylyeVtC3d0"/>
+<div class="absolute bottom-1 right-1 bg-black/80 text-[10px] px-1 rounded text-white">18:20</div>
+</div>
+<div class="flex-grow">
+<h3 class="font-bold text-on-surface leading-tight group-hover:text-primary transition-colors">Gesture Drawing for Illustrators</h3>
+<p class="text-sm text-on-surface-variant mt-1 line-clamp-1 italic">Capture energy and movement in your characters within 30 seconds.</p>
+<div class="flex items-center gap-3 mt-2">
+<span class="text-[10px] bg-surface-container-highest px-2 py-0.5 rounded text-on-surface-variant">Sycra</span>
+<span class="text-[10px] text-on-surface-variant">1.2M views</span>
+</div>
+</div>
+<button class="self-center p-2 rounded-full hover:bg-primary/10 text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Phase 2: Collapsed -->
+<div class="bg-surface-container-low rounded-xl p-6 hover:bg-surface-container transition-all cursor-pointer">
+<div class="flex justify-between items-center">
+<div>
+<span class="text-[10px] font-label uppercase tracking-[0.1em] text-on-surface-variant">Phase 02</span>
+<h2 class="text-xl font-bold mt-1">Anatomy &amp; Form</h2>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full border-2 border-surface-container bg-surface-container-highest overflow-hidden">
+<img alt="v" class="w-full h-full object-cover" data-alt="vibrant abstract colors representing artistic energy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRShrZ4AZQ3lQtMhxn3sKxZ1-90v-Z3HUWG2FxouT_zC8C5J9WU0iU1zJ3NOG7qibR-HrDqBWVHG1cKFNqe7FYhKKWAOGm2N7fqFEasbLDN18wLi9U0jD0B5GvDg9cROgSXwCQmUw5I0gQ_s-oMCaOGiqq5fyhcEq6XidH_Lx29wMwFu844bwH6_P1C17GgKsOoyql8InGfRdFUWKuTY_HLd0EiZ-eWmsN45N9Xg4_ykxatz9Lc40Uuh58pwht01dDFdq-LBVB-94i"/>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-surface-container bg-surface-container-highest overflow-hidden">
+<img alt="v" class="w-full h-full object-cover" data-alt="vibrant abstract colors representing artistic energy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrRd9ka_ZClWPzBsxFarHnHfl3LJxTVfyYrHmFW6ml5AIBFrs3RPDG8jmVVt5YK0a9UwwYdDPjgbidfWWI74Ys7_FURpwKoClza-PExi0ZeSD7ri6v5RNBiVzU3MeSzi6hODGc-a16tNLJpfz1cAT5hQvasC0U9bIWfucxq0YvkPtINfna1O9T6mSfVqkNkK62KUiCXUD6q9ktI4oAeMzF9FkSiMNU8vIGXfEXvPhSDW7_Tt1BQnZto0som1G8n_tRi7XkuhBF57uz"/>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Phase 3: Collapsed -->
+<div class="bg-surface-container-low rounded-xl p-6 hover:bg-surface-container transition-all cursor-pointer">
+<div class="flex justify-between items-center">
+<div>
+<span class="text-[10px] font-label uppercase tracking-[0.1em] text-on-surface-variant">Phase 03</span>
+<h2 class="text-xl font-bold mt-1">Lighting &amp; Values</h2>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full border-2 border-surface-container bg-surface-container-highest overflow-hidden">
+<img alt="v" class="w-full h-full object-cover" data-alt="vibrant abstract colors representing artistic energy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvT0tuVxzFfarFpMoMMrWAQsoQNrBfb9_CIqdARAu3moH8-kS4qQnzS04E-PP3ilfxVlT2BL2pIXd0RRyuXehMseNDvYORBIyGfSV6m_b3MubqjPkqwSB1o8yDM46SBVuxTpc0E6mVHiok4hYyMwyOAu6X1ChePUP6AYnjBsuS_1TA6ubck63g8FplWCIPJnL1akCQQnY-kYiOoDqQUV2vcLJANVTbgZmc5OFpira5-dhXDcLfJsN7L0g0DihMdRc8vXH2IvZEvXow"/>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Phase 4: Active Thinking Section -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container border border-primary/20 p-8 flex flex-col items-center justify-center text-center">
+<!-- Abstract Glass Background -->
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary via-transparent to-secondary"></div>
+</div>
+<div class="relative z-10">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4 mx-auto">
+<span class="material-symbols-outlined text-primary text-3xl animate-pulse" data-icon="psychology">psychology</span>
+</div>
+<h3 class="text-xl font-bold mb-2">Analyzing Your Learning Gaps</h3>
+<p class="text-on-surface-variant max-w-md text-sm">Our AI is cross-referencing your previous 'Color Theory' searches to find the most relevant intermediate tutorials.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB: Save to Library -->
+<button class="fixed bottom-24 right-6 bg-gradient-to-br from-primary to-primary-dim text-on-primary-container px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3 font-bold hover:scale-105 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined" data-icon="library_add">library_add</span>
+<span>Save to Library</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="bg-[#131313] fixed bottom-0 w-full z-50 h-[56px] border-t border-[#262626]/15 shadow-[0px_-4px_16px_rgba(0,0,0,0.4)] flex justify-around items-center px-4">
+<div class="flex flex-col items-center justify-center text-gray-500 hover:text-[#a8a4ff] transition-all tap-highlight-transparent active:scale-90">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium tracking-[0.05em] uppercase">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-[#1a1a1a] text-[#a8a4ff] rounded-xl px-3 py-1 tap-highlight-transparent active:scale-90">
+<span class="material-symbols-outlined" data-icon="play_circle" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium tracking-[0.05em] uppercase">Resume</span>
+</div>
+<div class="flex flex-col items-center justify-center text-gray-500 hover:text-[#a8a4ff] transition-all tap-highlight-transparent active:scale-90">
+<span class="material-symbols-outlined" data-icon="video_library">video_library</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium tracking-[0.05em] uppercase">Library</span>
+</div>
+<div class="flex flex-col items-center justify-center text-gray-500 hover:text-[#a8a4ff] transition-all tap-highlight-transparent active:scale-90">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium tracking-[0.05em] uppercase">Profile</span>
+</div>
+</nav>
+</body></html>

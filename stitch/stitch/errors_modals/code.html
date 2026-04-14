@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>iTube Learn - Access Restricted</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0e0e0e;
+            color: #ffffff;
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+        .headline-font {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-effect {
+            background: rgba(38, 38, 38, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-high": "#20201f",
+                        "surface-container-low": "#131313",
+                        "primary": "#a8a4ff",
+                        "primary-dim": "#675df9",
+                        "error-container": "#a70138",
+                        "tertiary-container": "#f8a826",
+                        "on-secondary": "#005f26",
+                        "error": "#ff6e84",
+                        "on-primary-container": "#16007d",
+                        "background": "#0e0e0e",
+                        "on-primary-fixed-variant": "#1d0098",
+                        "inverse-primary": "#5044e3",
+                        "primary-fixed": "#9995ff",
+                        "secondary-dim": "#63ef82",
+                        "tertiary-dim": "#e89b14",
+                        "surface-tint": "#a8a4ff",
+                        "on-surface": "#ffffff",
+                        "primary-container": "#9995ff",
+                        "primary-fixed-dim": "#8a85ff",
+                        "on-primary": "#1e009f",
+                        "on-error": "#490013",
+                        "secondary-container": "#006e2d",
+                        "outline": "#767575",
+                        "inverse-surface": "#fcf9f8",
+                        "surface-dim": "#0e0e0e",
+                        "on-secondary-fixed": "#004a1c",
+                        "on-tertiary": "#5a3900",
+                        "outline-variant": "#484847",
+                        "surface-variant": "#262626",
+                        "inverse-on-surface": "#565555",
+                        "on-tertiary-fixed-variant": "#593800",
+                        "on-surface-variant": "#adaaaa",
+                        "on-background": "#ffffff",
+                        "on-tertiary-fixed": "#301c00",
+                        "tertiary-fixed-dim": "#e89b14",
+                        "on-secondary-fixed-variant": "#006a2b",
+                        "on-primary-fixed": "#000000",
+                        "error-dim": "#d73357",
+                        "surface-container": "#1a1a1a",
+                        "surface": "#0e0e0e",
+                        "secondary-fixed": "#72fe8f",
+                        "tertiary-fixed": "#f8a826",
+                        "secondary": "#72fe8f",
+                        "surface-container-lowest": "#000000",
+                        "on-error-container": "#ffb2b9",
+                        "surface-container-highest": "#262626",
+                        "surface-bright": "#2c2c2c",
+                        "on-tertiary-container": "#4e3000",
+                        "secondary-fixed-dim": "#63ef82",
+                        "on-secondary-container": "#e4ffe1",
+                        "tertiary": "#ffb955"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<header class="bg-[#0e0e0e] sticky top-0 z-50 flex justify-between items-center px-6 py-4 w-full bg-[#131313]">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-xl">person</span>
+</div>
+<span class="text-xl font-bold text-[#a8a4ff] tracking-tight headline-font">iTube Learn</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-[#1a1a1a] transition-colors scale-95 active:duration-150">
+<span class="material-symbols-outlined text-[#a8a4ff]">search</span>
+</button>
+</header>
+<main class="flex-grow flex flex-col p-6 gap-8 pb-24 max-w-2xl mx-auto w-full">
+<!-- Header Intent -->
+<section class="mt-4">
+<h1 class="headline-font text-3xl font-extrabold tracking-tight mb-2">Content Restrictions</h1>
+<p class="text-on-surface-variant leading-[1.6x]">We are unable to process the requested content due to safety or technical limitations.</p>
+</section>
+<!-- Inline Error Card: Something went wrong -->
+<section class="bg-surface-container rounded-md p-6 border-l-4 border-error-dim flex flex-col gap-4">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-error-container/20 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-error">error</span>
+</div>
+<div>
+<h2 class="headline-font font-bold text-lg text-on-surface">Something went wrong</h2>
+<p class="text-on-surface-variant text-sm mt-1 leading-[1.6x]">We encountered an unexpected error while generating your lesson. Please try refreshing or checking your connection.</p>
+</div>
+</div>
+<div class="flex justify-end gap-3 mt-2">
+<button class="px-6 py-2 rounded-xl text-sm font-semibold outline-variant bg-surface-container-highest hover:bg-surface-bright transition-all">Report</button>
+<button class="px-6 py-2 rounded-xl text-sm font-semibold bg-gradient-to-br from-primary to-primary-dim text-on-primary shadow-lg shadow-primary/10">Retry</button>
+</div>
+</section>
+<!-- Topic Card Mockup (The context for the modal) -->
+<div class="relative w-full aspect-video rounded-md overflow-hidden bg-surface-container-low group">
+<img alt="" class="w-full h-full object-cover opacity-30 grayscale" data-alt="a dark futuristic server room with glowing blue cables and data visualization on glass panels high tech aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIWi6bbK0oQcsZq4NVaW-HowPAaRuA7k2xcTodvZZRGexXJYAtoSUR880e55O8ndgu26j6ZCxMITUAOASrrC1AyCI027VIMEUI6p80o_Lfv6uqPdH0ic4HEmgEesnkR6ff2UP8qESIUSRlXG_AbRajg9V92ti_ToTNeelgsfh0SU5LG6luxExTCDqhEpWAQy8QUqVbkSme2L-HarEW6iWfRByGRcmy7NQwXUBoevUImNL3pX2h4iDA4JOND21cj6770dPe55wKTN-R"/>
+<div class="absolute inset-0 p-6 flex flex-col justify-end bg-gradient-to-t from-background via-transparent">
+<span class="label-md tracking-wider text-[10px] uppercase font-bold text-primary mb-2">Learning Module</span>
+<h3 class="headline-font text-xl font-bold">Cybersecurity Advanced Protocols</h3>
+</div>
+</div>
+<!-- Spacer to simulate height -->
+<div class="h-12"></div>
+</main>
+<!-- Modal Bottom Sheet / Inline Blocked State Overlay -->
+<div class="fixed inset-0 z-50 flex items-end justify-center px-4 pb-20 pointer-events-none">
+<!-- Backdrop Blur Layer -->
+<div class="absolute inset-0 bg-background/60 backdrop-blur-sm pointer-events-auto"></div>
+<!-- Bottom Sheet Modal -->
+<div class="relative w-full max-w-md glass-effect rounded-xl pointer-events-auto overflow-hidden animate-in slide-in-from-bottom duration-300 ring-1 ring-white/10 shadow-2xl">
+<div class="p-8 flex flex-col items-center text-center">
+<!-- Icon Visual -->
+<div class="w-16 h-16 rounded-full bg-error-container/10 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-error text-4xl" data-weight="fill" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<!-- Text Content -->
+<h2 class="headline-font text-2xl font-bold mb-3">Topic Not Supported</h2>
+<p class="text-on-surface-variant leading-relaxed mb-8">
+                    The requested topic <span class="text-on-surface font-medium italic underline decoration-primary-dim/40 underline-offset-4">Doesn't meet guidelines</span> for AI-assisted curriculum generation. We maintain strict safety protocols to ensure educational integrity.
+                </p>
+<!-- Actions -->
+<div class="w-full space-y-3">
+<button class="w-full py-4 rounded-xl bg-gradient-to-br from-primary to-primary-dim text-on-primary font-bold text-base shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all">
+                        Got it
+                    </button>
+<button class="w-full py-4 rounded-xl text-on-surface-variant font-semibold text-sm hover:text-on-surface transition-colors">
+                        View Safety Policy
+                    </button>
+</div>
+</div>
+<!-- Subtle Tonal Accent Line at Top -->
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-1 bg-white/20 rounded-full mt-3"></div>
+</div>
+</div>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 h-[56px] bg-[#131313] border-t border-[#262626]/15 shadow-[0px_-4px_16px_rgba(0,0,0,0.4)] flex justify-around items-center px-4">
+<a class="flex flex-col items-center justify-center text-gray-500 hover:text-[#a8a4ff] transition-all active:scale-90 tap-highlight-transparent" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium tracking-[0.05em] uppercase mt-0.5">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-500 hover:text-[#a8a4ff] transition-all active:scale-90 tap-highlight-transparent" href="#">
+<span class="material-symbols-outlined" data-icon="play_circle">play_circle</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium tracking-[0.05em] uppercase mt-0.5">Resume</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-500 hover:text-[#a8a4ff] transition-all active:scale-90 tap-highlight-transparent" href="#">
+<span class="material-symbols-outlined" data-icon="video_library">video_library</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium tracking-[0.05em] uppercase mt-0.5">Library</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#1a1a1a] text-[#a8a4ff] rounded-xl px-3 py-1 active:scale-90 tap-highlight-transparent" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium tracking-[0.05em] uppercase mt-0.5">Profile</span>
+</a>
+</nav>
+</body></html>

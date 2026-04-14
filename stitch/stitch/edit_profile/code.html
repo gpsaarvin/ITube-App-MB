@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Edit Profile - iTube Learn</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#20201f",
+                    "surface-container-low": "#131313",
+                    "primary": "#a8a4ff",
+                    "primary-dim": "#675df9",
+                    "error-container": "#a70138",
+                    "tertiary-container": "#f8a826",
+                    "on-secondary": "#005f26",
+                    "error": "#ff6e84",
+                    "on-primary-container": "#16007d",
+                    "background": "#0e0e0e",
+                    "on-primary-fixed-variant": "#1d0098",
+                    "inverse-primary": "#5044e3",
+                    "primary-fixed": "#9995ff",
+                    "secondary-dim": "#63ef82",
+                    "tertiary-dim": "#e89b14",
+                    "surface-tint": "#a8a4ff",
+                    "on-surface": "#ffffff",
+                    "primary-container": "#9995ff",
+                    "primary-fixed-dim": "#8a85ff",
+                    "on-primary": "#1e009f",
+                    "on-error": "#490013",
+                    "secondary-container": "#006e2d",
+                    "outline": "#767575",
+                    "inverse-surface": "#fcf9f8",
+                    "surface-dim": "#0e0e0e",
+                    "on-secondary-fixed": "#004a1c",
+                    "on-tertiary": "#5a3900",
+                    "outline-variant": "#484847",
+                    "surface-variant": "#262626",
+                    "inverse-on-surface": "#565555",
+                    "on-tertiary-fixed-variant": "#593800",
+                    "on-surface-variant": "#adaaaa",
+                    "on-background": "#ffffff",
+                    "on-tertiary-fixed": "#301c00",
+                    "tertiary-fixed-dim": "#e89b14",
+                    "on-secondary-fixed-variant": "#006a2b",
+                    "on-primary-fixed": "#000000",
+                    "error-dim": "#d73357",
+                    "surface-container": "#1a1a1a",
+                    "surface": "#0e0e0e",
+                    "secondary-fixed": "#72fe8f",
+                    "tertiary-fixed": "#f8a826",
+                    "secondary": "#72fe8f",
+                    "surface-container-lowest": "#000000",
+                    "on-error-container": "#ffb2b9",
+                    "surface-container-highest": "#262626",
+                    "surface-bright": "#2c2c2c",
+                    "on-tertiary-container": "#4e3000",
+                    "secondary-fixed-dim": "#63ef82",
+                    "on-secondary-container": "#e4ffe1",
+                    "tertiary": "#ffb955"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(38, 38, 38, 0.6);
+            backdrop-filter: blur(20px);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0e0e0e;
+            color: #ffffff;
+        }
+        h1, h2, h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen pb-24">
+<!-- TopAppBar Navigation Shell -->
+<header class="bg-[#0e0e0e] text-[#a8a4ff] font-['Plus_Jakarta_Sans'] font-bold text-lg leading-[1.6x] docked full-width top-0 sticky z-50 bg-[#131313] flat no shadows flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-4">
+<button class="p-2 -ml-2 hover:bg-[#1a1a1a] transition-colors rounded-full active:scale-95 active:duration-150">
+<span class="material-symbols-outlined text-on-surface">arrow_back</span>
+</button>
+<span class="text-xl font-bold text-[#a8a4ff] tracking-tight">Edit Profile</span>
+</div>
+<button class="text-primary font-bold text-base px-4 py-1.5 rounded-full hover:bg-primary/10 transition-colors active:scale-95 active:duration-150">
+            Save
+        </button>
+</header>
+<main class="max-w-2xl mx-auto px-6 py-8">
+<!-- Profile Picture Section -->
+<div class="flex flex-col items-center justify-center mb-12">
+<div class="relative">
+<div class="w-32 h-32 rounded-full overflow-hidden border-4 border-surface-container">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="close-up portrait of a young professional man with a friendly expression in a modern office with soft cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8AEkWWMTVNAw5gM2NR9v3eP0bokmgyeE853K5AQUB6jw-BeEDLDrr7HZvnJJIrTma32J_oBaM_24uRwCn8uGAF71RUmAMXxlMfREMvuDXTOIdp5pISIvLIcMvPqYpkMvYxOO8sm4UPTNnBQxYFuHYHLCUDDJNpPHY6n8wG_u_uDWtvO4B_S3GTnVDGek9xMHb9LiZXg85dY_27AwPPmBW7wWoGSsT5MiRrGizg-QGWIUUDL45BXYJeCNFom5YxU0aqlsvNZbhJ3qv"/>
+</div>
+<button class="absolute bottom-0 right-0 p-2.5 bg-primary text-on-primary rounded-full shadow-lg border-4 border-background active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">photo_camera</span>
+</button>
+</div>
+<p class="mt-4 text-on-surface-variant font-label text-xs uppercase tracking-widest">Change Photo</p>
+</div>
+<!-- Form Fields -->
+<div class="space-y-8">
+<section class="space-y-6">
+<h2 class="text-sm font-label text-primary uppercase tracking-[0.1em]">General Information</h2>
+<!-- Name Field -->
+<div class="relative group">
+<label class="block text-xs font-medium text-on-surface-variant mb-2 ml-1">Full Name</label>
+<input class="w-full bg-surface-container-low border border-outline-variant/20 rounded-xl px-4 py-3.5 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all text-on-surface placeholder:text-outline" type="text" value="Alex Henderson"/>
+</div>
+<!-- Username Field -->
+<div class="relative group">
+<label class="block text-xs font-medium text-on-surface-variant mb-2 ml-1">Username</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">@</span>
+<input class="w-full bg-surface-container-low border border-outline-variant/20 rounded-xl pl-8 pr-4 py-3.5 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all text-on-surface" type="text" value="alex_learns"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Phone Field -->
+<div class="relative group">
+<label class="block text-xs font-medium text-on-surface-variant mb-2 ml-1">Phone Number</label>
+<input class="w-full bg-surface-container-low border border-outline-variant/20 rounded-xl px-4 py-3.5 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all text-on-surface" type="tel" value="+1 (555) 000-1234"/>
+</div>
+<!-- Country Field -->
+<div class="relative group">
+<label class="block text-xs font-medium text-on-surface-variant mb-2 ml-1">Country</label>
+<select class="w-full bg-surface-container-low border border-outline-variant/20 rounded-xl px-4 py-3.5 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all text-on-surface appearance-none">
+<option>United States</option>
+<option>United Kingdom</option>
+<option>Canada</option>
+<option>Germany</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-[46px] text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+</div>
+</section>
+<!-- Learning Preferences - Editorial Style -->
+<section class="pt-6 space-y-6">
+<div class="flex justify-between items-end">
+<h2 class="text-sm font-label text-primary uppercase tracking-[0.1em]">Learning Preferences</h2>
+<span class="text-[10px] font-label text-on-surface-variant uppercase tracking-wider">AI Powered Personalization</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Preference Card 1 -->
+<div class="p-4 rounded-xl bg-surface-container border border-outline-variant/10 flex items-center justify-between group hover:bg-surface-variant transition-colors cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">speed</span>
+</div>
+<div>
+<h3 class="text-sm font-semibold">Playback Speed</h3>
+<p class="text-xs text-on-surface-variant">Default: 1.25x</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+<!-- Preference Card 2 -->
+<div class="p-4 rounded-xl bg-surface-container border border-outline-variant/10 flex items-center justify-between group hover:bg-surface-variant transition-colors cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">psychology</span>
+</div>
+<div>
+<h3 class="text-sm font-semibold">AI Summaries</h3>
+<p class="text-xs text-on-surface-variant">Detailed Mode</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+<!-- Preference Card 3 -->
+<div class="p-4 rounded-xl bg-surface-container border border-outline-variant/10 flex items-center justify-between group hover:bg-surface-variant transition-colors cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-tertiary-container/10 flex items-center justify-center text-tertiary-container">
+<span class="material-symbols-outlined">translate</span>
+</div>
+<div>
+<h3 class="text-sm font-semibold">Subtitles</h3>
+<p class="text-xs text-on-surface-variant">English (Auto)</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+<!-- Preference Card 4 -->
+<div class="p-4 rounded-xl bg-surface-container border border-outline-variant/10 flex items-center justify-between group hover:bg-surface-variant transition-colors cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-error/10 flex items-center justify-center text-error">
+<span class="material-symbols-outlined">notifications_active</span>
+</div>
+<div>
+<h3 class="text-sm font-semibold">Reminders</h3>
+<p class="text-xs text-on-surface-variant">Daily at 8:00 PM</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+</div>
+</section>
+<!-- Dangerous Area -->
+<section class="pt-10">
+<button class="w-full py-4 text-error font-medium border border-error/20 rounded-xl hover:bg-error/5 transition-colors active:scale-[0.98]">
+                    Delete Learning History
+                </button>
+<p class="mt-4 text-center text-[11px] text-on-surface-variant leading-relaxed">
+                    This will permanently remove all your progress, saved summaries, and AI personalized data.
+                </p>
+</section>
+</div>
+</main>
+<!-- BottomNavBar Navigation Shell -->
+<nav class="bg-[#131313] text-[#a8a4ff] font-['Plus_Jakarta_Sans'] text-[10px] font-medium tracking-[0.05em] uppercase fixed bottom-0 w-full z-50 h-[56px] border-t border-[#262626]/15 shadow-[0px_-4px_16px_rgba(0,0,0,0.4)] flex justify-around items-center px-4">
+<a class="flex flex-col items-center justify-center text-gray-500 hover:text-[#a8a4ff] transition-all tap-highlight-transparent active:scale-90" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="mt-0.5">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-500 hover:text-[#a8a4ff] transition-all tap-highlight-transparent active:scale-90" href="#">
+<span class="material-symbols-outlined">play_circle</span>
+<span class="mt-0.5">Resume</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-500 hover:text-[#a8a4ff] transition-all tap-highlight-transparent active:scale-90" href="#">
+<span class="material-symbols-outlined">video_library</span>
+<span class="mt-0.5">Library</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#1a1a1a] text-[#a8a4ff] rounded-xl px-3 py-1 transition-all tap-highlight-transparent active:scale-90" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="mt-0.5">Profile</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Resume Analyzer - iTube Learn</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0e0e0e;
+        }
+        .headline-font {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Glassmorphism Formula */
+        .glass-panel {
+            background-color: rgba(38, 38, 38, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-high": "#20201f",
+                      "surface-container-low": "#131313",
+                      "primary": "#a8a4ff",
+                      "primary-dim": "#675df9",
+                      "error-container": "#a70138",
+                      "tertiary-container": "#f8a826",
+                      "on-secondary": "#005f26",
+                      "error": "#ff6e84",
+                      "on-primary-container": "#16007d",
+                      "background": "#0e0e0e",
+                      "on-primary-fixed-variant": "#1d0098",
+                      "inverse-primary": "#5044e3",
+                      "primary-fixed": "#9995ff",
+                      "secondary-dim": "#63ef82",
+                      "tertiary-dim": "#e89b14",
+                      "surface-tint": "#a8a4ff",
+                      "on-surface": "#ffffff",
+                      "primary-container": "#9995ff",
+                      "primary-fixed-dim": "#8a85ff",
+                      "on-primary": "#1e009f",
+                      "on-error": "#490013",
+                      "secondary-container": "#006e2d",
+                      "outline": "#767575",
+                      "inverse-surface": "#fcf9f8",
+                      "surface-dim": "#0e0e0e",
+                      "on-secondary-fixed": "#004a1c",
+                      "on-tertiary": "#5a3900",
+                      "outline-variant": "#484847",
+                      "surface-variant": "#262626",
+                      "inverse-on-surface": "#565555",
+                      "on-tertiary-fixed-variant": "#593800",
+                      "on-surface-variant": "#adaaaa",
+                      "on-background": "#ffffff",
+                      "on-tertiary-fixed": "#301c00",
+                      "tertiary-fixed-dim": "#e89b14",
+                      "on-secondary-fixed-variant": "#006a2b",
+                      "on-primary-fixed": "#000000",
+                      "error-dim": "#d73357",
+                      "surface-container": "#1a1a1a",
+                      "surface": "#0e0e0e",
+                      "secondary-fixed": "#72fe8f",
+                      "tertiary-fixed": "#f8a826",
+                      "secondary": "#72fe8f",
+                      "surface-container-lowest": "#000000",
+                      "on-error-container": "#ffb2b9",
+                      "surface-container-highest": "#262626",
+                      "surface-bright": "#2c2c2c",
+                      "on-tertiary-container": "#4e3000",
+                      "secondary-fixed-dim": "#63ef82",
+                      "on-secondary-container": "#e4ffe1",
+                      "tertiary": "#ffb955"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Plus Jakarta Sans"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased min-h-screen pb-24">
+<!-- TopAppBar Mapping -->
+<header class="bg-[#0e0e0e] sticky top-0 z-50 flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden">
+<img alt="user profile picture" data-alt="close-up professional portrait of a young male software engineer with soft studio lighting and dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJfG8xAVGvOsLtrR6TTGK9_oPzsyn8kS09By0v4qCzYFt5cpHEULze_nNhYEGrwSKg6gImpvleoFaa6TrvMb8xqUMLHXqOiQiTLIomDND0dp7jz90SrpszDu9EPWtwUbuOGsRWpHbB1pv9LcYjWBhCiFAwG0hxDDWVQhqvwvwn_af63-AEGuDfGmXAf2KukIoW-KnaBWu-Tn6W1zdRik7JZrJDJbPowtkeKuYlU2QqqucV2ZUkEqQ9wpSgbhy0_-zeWksFZ022xcMM"/>
+</div>
+<h1 class="font-['Plus_Jakarta_Sans'] font-bold text-lg leading-[1.6x] text-[#a8a4ff] tracking-tight">Resume Analyzer</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="hover:bg-[#1a1a1a] transition-colors p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-gray-400">search</span>
+</button>
+</div>
+</header>
+<main class="max-w-4xl mx-auto px-6 py-8">
+<!-- Navigation Tabs (History/Current) -->
+<div class="flex gap-8 mb-10">
+<button class="text-primary border-b-2 border-primary pb-2 font-semibold headline-font text-sm">ANALYZER</button>
+<button class="text-on-surface-variant hover:text-on-surface pb-2 font-medium headline-font text-sm transition-colors">HISTORY</button>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Left Column: Input -->
+<div class="lg:col-span-5 space-y-8">
+<div class="space-y-4">
+<h2 class="text-2xl headline-font font-bold">Smart Analysis</h2>
+<p class="text-on-surface-variant text-sm leading-relaxed">Our AI curator compares your profile against industry benchmarks and job descriptions to provide actionable insights.</p>
+</div>
+<!-- Target Job Input -->
+<div class="space-y-2">
+<label class="text-[10px] uppercase tracking-[0.05em] font-medium text-on-surface-variant">Target Job Role</label>
+<input class="w-full bg-surface-container border border-outline-variant/20 focus:border-primary focus:ring-0 rounded-xl px-4 py-3 text-on-surface placeholder:text-outline-variant transition-all outline-none" placeholder="e.g. Senior Frontend Developer" type="text"/>
+</div>
+<!-- Upload Zone -->
+<div class="relative group">
+<div class="w-full h-64 border-2 border-dashed border-outline-variant/30 rounded-xl flex flex-col items-center justify-center gap-4 bg-surface-container-low group-hover:bg-surface-container transition-all cursor-pointer">
+<div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl">upload_file</span>
+</div>
+<div class="text-center">
+<p class="headline-font font-semibold">Drop your resume here</p>
+<p class="text-xs text-on-surface-variant mt-1">PDF, DOCX up to 10MB</p>
+</div>
+</div>
+</div>
+<!-- Analyze Button -->
+<button class="w-full py-4 bg-gradient-to-br from-primary to-primary-dim text-on-primary font-bold rounded-xl shadow-[0_4px_16px_rgba(168,164,255,0.25)] hover:shadow-[0_8px_24px_rgba(168,164,255,0.4)] active:scale-95 transition-all">
+                    Analyze Resume
+                </button>
+</div>
+<!-- Right Column: Results (Intentional Asymmetry) -->
+<div class="lg:col-span-7 space-y-6">
+<div class="bg-surface-container rounded-xl p-8 space-y-8">
+<!-- Score Section -->
+<div class="flex items-center gap-8">
+<!-- Circular Gauge -->
+<div class="relative w-32 h-32 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-surface-variant" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-dasharray="364.4" stroke-dashoffset="80.1" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-3xl font-extrabold headline-font">78</span>
+<span class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter">ATS Score</span>
+</div>
+</div>
+<div class="space-y-2">
+<h3 class="headline-font font-bold text-xl">Good Potential</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Your resume is well-structured but lacks specific keywords for a Senior role.</p>
+<div class="h-1 w-full bg-surface-variant rounded-full overflow-hidden mt-4">
+<div class="h-full bg-gradient-to-r from-primary to-secondary w-[78%]"></div>
+</div>
+</div>
+</div>
+<!-- Highlights Bento -->
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-high p-4 rounded-xl space-y-2">
+<div class="flex items-center gap-2 text-secondary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Strengths</span>
+</div>
+<ul class="text-xs space-y-2 text-on-surface/80">
+<li>• Quantifiable Achievements</li>
+<li>• Clear Visual Hierarchy</li>
+<li>• Tech Stack Alignment</li>
+</ul>
+</div>
+<div class="bg-surface-container-high p-4 rounded-xl space-y-2">
+<div class="flex items-center gap-2 text-error">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Weaknesses</span>
+</div>
+<ul class="text-xs space-y-2 text-on-surface/80">
+<li>• Weak Action Verbs</li>
+<li>• Missing Profile Summary</li>
+<li>• Education Section Length</li>
+</ul>
+</div>
+</div>
+<!-- Accordion Section -->
+<div class="space-y-4">
+<div class="group">
+<div class="flex items-center justify-between py-4 border-b border-outline-variant/10 cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary">key</span>
+<span class="headline-font font-semibold">Missing Keywords</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">expand_more</span>
+</div>
+<div class="pt-4 pb-2 flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-variant rounded-full text-[10px] font-medium text-on-surface-variant">Cloud Architecture</span>
+<span class="px-3 py-1 bg-surface-variant rounded-full text-[10px] font-medium text-on-surface-variant">Next.js 14</span>
+<span class="px-3 py-1 bg-surface-variant rounded-full text-[10px] font-medium text-on-surface-variant">TDD</span>
+<span class="px-3 py-1 bg-surface-variant rounded-full text-[10px] font-medium text-on-surface-variant">CI/CD Pipelines</span>
+</div>
+</div>
+<div class="group">
+<div class="flex items-center justify-between py-4 border-b border-outline-variant/10 cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+<span class="headline-font font-semibold">AI Suggestions</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">expand_more</span>
+</div>
+<div class="hidden pt-4 text-sm text-on-surface-variant leading-relaxed">
+                                Suggestions will appear here after complete scan...
+                            </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar Mapping -->
+<nav class="fixed bottom-0 w-full z-50 h-[56px] bg-[#131313] border-t border-[#262626]/15 shadow-[0px_-4px_16px_rgba(0,0,0,0.4)] flex justify-around items-center px-4">
+<a class="flex flex-col items-center justify-center text-gray-500 hover:text-[#a8a4ff] transition-all active:scale-90 tap-highlight-transparent" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium tracking-[0.05em] uppercase">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#1a1a1a] text-[#a8a4ff] rounded-xl px-3 py-1 active:scale-90 tap-highlight-transparent" href="#">
+<span class="material-symbols-outlined">play_circle</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium tracking-[0.05em] uppercase">Resume</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-500 hover:text-[#a8a4ff] transition-all active:scale-90 tap-highlight-transparent" href="#">
+<span class="material-symbols-outlined">video_library</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium tracking-[0.05em] uppercase">Library</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-500 hover:text-[#a8a4ff] transition-all active:scale-90 tap-highlight-transparent" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium tracking-[0.05em] uppercase">Profile</span>
+</a>
+</nav>
+</body></html>

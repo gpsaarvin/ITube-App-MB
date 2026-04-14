@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "surface-container-high": "#20201f",
+                  "surface-container-low": "#131313",
+                  "primary": "#a8a4ff",
+                  "primary-dim": "#675df9",
+                  "error-container": "#a70138",
+                  "tertiary-container": "#f8a826",
+                  "on-secondary": "#005f26",
+                  "error": "#ff6e84",
+                  "on-primary-container": "#16007d",
+                  "background": "#0e0e0e",
+                  "on-primary-fixed-variant": "#1d0098",
+                  "inverse-primary": "#5044e3",
+                  "primary-fixed": "#9995ff",
+                  "secondary-dim": "#63ef82",
+                  "tertiary-dim": "#e89b14",
+                  "surface-tint": "#a8a4ff",
+                  "on-surface": "#ffffff",
+                  "primary-container": "#9995ff",
+                  "primary-fixed-dim": "#8a85ff",
+                  "on-primary": "#1e009f",
+                  "on-error": "#490013",
+                  "secondary-container": "#006e2d",
+                  "outline": "#767575",
+                  "inverse-surface": "#fcf9f8",
+                  "surface-dim": "#0e0e0e",
+                  "on-secondary-fixed": "#004a1c",
+                  "on-tertiary": "#5a3900",
+                  "outline-variant": "#484847",
+                  "surface-variant": "#262626",
+                  "inverse-on-surface": "#565555",
+                  "on-tertiary-fixed-variant": "#593800",
+                  "on-surface-variant": "#adaaaa",
+                  "on-background": "#ffffff",
+                  "on-tertiary-fixed": "#301c00",
+                  "tertiary-fixed-dim": "#e89b14",
+                  "on-secondary-fixed-variant": "#006a2b",
+                  "on-primary-fixed": "#000000",
+                  "error-dim": "#d73357",
+                  "surface-container": "#1a1a1a",
+                  "surface": "#0e0e0e",
+                  "secondary-fixed": "#72fe8f",
+                  "tertiary-fixed": "#f8a826",
+                  "secondary": "#72fe8f",
+                  "surface-container-lowest": "#000000",
+                  "on-error-container": "#ffb2b9",
+                  "surface-container-highest": "#262626",
+                  "surface-bright": "#2c2c2c",
+                  "on-tertiary-container": "#4e3000",
+                  "secondary-fixed-dim": "#63ef82",
+                  "on-secondary-container": "#e4ffe1",
+                  "tertiary": "#ffb955"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "fontFamily": {
+                  "headline": ["Plus Jakarta Sans"],
+                  "body": ["Inter"],
+                  "label": ["Inter"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8f9fa; /* Light mode override for background */
+    }
+    .light-theme-surface {
+      background-color: #ffffff;
+    }
+    .light-theme-container {
+      background-color: #f1f3f5;
+    }
+    .light-theme-text-primary {
+      color: #1a1a1a;
+    }
+    .light-theme-text-secondary {
+      color: #5f6368;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#f8f9fa] text-[#1a1a1a] min-h-screen pb-20">
+<!-- TopAppBar -->
+<header class="bg-[#ffffff] text-[#1a1a1a] font-['Plus_Jakarta_Sans'] font-bold text-lg leading-[1.6x] docked full-width top-0 sticky z-50 flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="professional portrait of a young man with glasses smiling in a bright studio setting with soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCA6PYuJ75PeJE8YPhzdtcYqj8wJvdxHl2Xefuus19U2juRe6Gec4-UQ_SoiCt5Gcr9xS5pIz9b2XAoLEeZm_EC2fQ5j3-WPDPte6_kmbOHWRpsksZey8rk7phHd1ewoROn3R4wzUP6vk09pezXSFO9Bpat3oFjBTxBQLeaCB7bS53cSAxFOwimBTeGSlRr88_vgZFvyhhXnvQuRMB_8jQfoDraIcpn5VwcHgqc-RYhSGFD5SJ1ASuflCyAdxWqdReZOlr1vNCSh7tp"/>
+</div>
+<span class="text-xl font-bold text-[#675df9] tracking-tight">iTube Learn</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="hover:bg-[#f1f3f5] transition-colors p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[#1a1a1a]" data-icon="search">search</span>
+</button>
+</div>
+</header>
+<main class="max-w-screen-xl mx-auto px-6 pt-8">
+<!-- Hero Section: Curated Collection -->
+<section class="mb-12">
+<h1 class="font-headline font-extrabold text-4xl mb-2 light-theme-text-primary tracking-tight">Library</h1>
+<p class="font-body text-lg light-theme-text-secondary max-w-2xl">Your curated roadmap of mastered skills and saved discoveries.</p>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+<!-- Primary Roadmap Progress (Large Card) -->
+<div class="md:col-span-2 bg-white rounded-xl p-8 border border-[#e9ecef] shadow-sm flex flex-col justify-between overflow-hidden relative group">
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-4">
+<span class="bg-[#675df9]/10 text-[#675df9] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider font-label">Current Roadmap</span>
+</div>
+<h2 class="font-headline text-3xl font-bold mb-4 light-theme-text-primary">Advanced Machine Learning Architecture</h2>
+<p class="light-theme-text-secondary mb-8 max-w-md">Mastering neural networks and large language models through structured video curriculum.</p>
+<div class="space-y-4">
+<div class="flex justify-between items-end mb-1">
+<span class="text-sm font-bold font-label text-[#675df9]">PROGRESS: 68%</span>
+<span class="text-sm light-theme-text-secondary">12/18 Modules</span>
+</div>
+<div class="w-full h-3 bg-[#f1f3f5] rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-[#a8a4ff] to-[#675df9] w-[68%]"></div>
+</div>
+</div>
+</div>
+<!-- Decorative background element for the bento item -->
+<div class="absolute -right-10 -bottom-10 w-48 h-48 bg-gradient-to-br from-[#a8a4ff]/20 to-[#675df9]/10 rounded-full blur-3xl group-hover:scale-110 transition-transform duration-700"></div>
+</div>
+<!-- Quick Stats Stack -->
+<div class="space-y-6">
+<div class="bg-white rounded-xl p-6 border border-[#e9ecef] shadow-sm">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-[#72fe8f]/10 flex items-center justify-center text-[#006e2d]">
+<span class="material-symbols-outlined" data-icon="timer">timer</span>
+</div>
+<div>
+<p class="text-xs font-label uppercase tracking-widest text-[#5f6368]">Total Study Time</p>
+<p class="text-2xl font-bold font-headline">124.5 hrs</p>
+</div>
+</div>
+</div>
+<div class="bg-[#1a1a1a] rounded-xl p-6 shadow-xl text-white">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-[#a8a4ff]/20 flex items-center justify-center text-[#a8a4ff]">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div>
+<p class="text-xs font-label uppercase tracking-widest text-[#a8a4ff]/70">AI Insights</p>
+<p class="text-2xl font-bold font-headline">42 Nodes</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Roadmap List Section -->
+<section class="mb-16">
+<div class="flex justify-between items-center mb-8">
+<h3 class="font-headline text-2xl font-bold light-theme-text-primary">Mastery Path</h3>
+<button class="text-[#675df9] font-bold text-sm hover:underline">View All Path Details</button>
+</div>
+<div class="space-y-4">
+<!-- Completed Step -->
+<div class="group bg-white p-5 rounded-xl border border-[#e9ecef] flex items-center justify-between hover:border-[#675df9]/30 transition-all">
+<div class="flex items-center gap-6">
+<div class="w-12 h-12 rounded-full bg-[#72fe8f]/10 flex items-center justify-center text-[#006a2b]">
+<span class="material-symbols-outlined font-bold" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div>
+<h4 class="font-headline font-bold light-theme-text-primary">Foundations of Calculus</h4>
+<p class="text-sm light-theme-text-secondary">Completed on Oct 12 • 4 hours of content</p>
+</div>
+</div>
+<button class="w-10 h-10 rounded-full hover:bg-[#f1f3f5] flex items-center justify-center light-theme-text-secondary">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+<!-- Current Step (Highlighted) -->
+<div class="group bg-[#f1f3f5]/50 p-5 rounded-xl border-l-4 border-[#675df9] flex items-center justify-between">
+<div class="flex items-center gap-6">
+<div class="w-12 h-12 rounded-full bg-[#675df9] flex items-center justify-center text-white">
+<span class="material-symbols-outlined" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h4 class="font-headline font-bold light-theme-text-primary">Neural Network Optimization</h4>
+<span class="bg-[#675df9] text-white text-[10px] px-2 py-0.5 rounded font-bold uppercase">Resume</span>
+</div>
+<p class="text-sm text-[#675df9] font-medium">Next: Backpropagation Mastery (4:12 remaining)</p>
+</div>
+</div>
+<button class="bg-[#675df9] text-white px-5 py-2 rounded-full font-bold text-sm shadow-md hover:shadow-lg transition-shadow">
+            Start Learning
+          </button>
+</div>
+<!-- Future Step -->
+<div class="group bg-white p-5 rounded-xl border border-[#e9ecef] flex items-center justify-between opacity-60">
+<div class="flex items-center gap-6">
+<div class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-400">
+<span class="material-symbols-outlined" data-icon="lock">lock</span>
+</div>
+<div>
+<h4 class="font-headline font-bold light-theme-text-primary">Deep Generative Models</h4>
+<p class="text-sm light-theme-text-secondary">Unlocks after completion of current module</p>
+</div>
+</div>
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-gray-300 cursor-not-allowed">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Saved Video Snippets (Horizontal Scroll) -->
+<section class="mb-12">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline text-2xl font-bold light-theme-text-primary">Saved Insights</h3>
+<button class="text-[#675df9] font-bold text-sm hover:underline">Manage Snippets</button>
+</div>
+<div class="flex gap-6 overflow-x-auto pb-4 scrollbar-hide">
+<div class="flex-none w-72">
+<div class="h-40 rounded-xl overflow-hidden mb-3 relative group">
+<img class="w-full h-full object-cover" data-alt="close-up of circuit board with glowing blue electricity and neon light trails representing data flow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKqYYfDPzfIB5POpndV9p9OmNbrUvquXjRbx9NTFSo49TTqcag7-GFlNe08C8oCXABQNh0D1InPQBZRMeMpMtARintoznx8NkiogZsNDvrILbcw3qQydPwMNOz04ppA98UPS-acXozQ1OR_OdQJwXEPtpjvNUKbwpF86_BGXyhzFXJg6eX2Zw_zGYJ6mwP57JWXWyePNL3sGEeoodAgfPpZs614SRsR6YoABFAN3bpJZC_LZTXAxRLyw-h7-sNdKKgyKKiWaHfUigL"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white text-4xl" data-icon="play_circle">play_circle</span>
+</div>
+<div class="absolute bottom-2 right-2 bg-black/70 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">1:45</div>
+</div>
+<h5 class="font-bold text-sm light-theme-text-primary mb-1 line-clamp-1">Transformer Architecture Explained</h5>
+<p class="text-xs light-theme-text-secondary">Saved 2 days ago • DeepLearning.AI</p>
+</div>
+<div class="flex-none w-72">
+<div class="h-40 rounded-xl overflow-hidden mb-3 relative group">
+<img class="w-full h-full object-cover" data-alt="clean minimal home office with a single laptop on a wooden desk and soft morning sunlight casting shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhjpjGbQlfjCSp8o1ND8TTLeQf6YSQf9fmIoOppdkWvV_AX5Dk3ZC7yUo1Xa863sAmdzQpa11eJePtZyX5QFYanZndEusRyXHjYqd6pTC8GRUiqIf0QRJn9lqATVUzYYYrFEDI0bT06VmaugQU4jc4HGR1ZjrMTwZ3dN8w8C4mwy9xYMUhFLQGxxrJ2SWbaD1gdADxjUnzIXB_laQFdWhHe-HPHUGALvhBtQ9175vKHSskVkJcmMTbVpBBkjVKLnATYxCvjLcPuuos"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white text-4xl" data-icon="play_circle">play_circle</span>
+</div>
+<div class="absolute bottom-2 right-2 bg-black/70 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">3:20</div>
+</div>
+<h5 class="font-bold text-sm light-theme-text-primary mb-1 line-clamp-1">Effective Productivity for Engineers</h5>
+<p class="text-xs light-theme-text-secondary">Saved 5 days ago • Huberman Lab</p>
+</div>
+<div class="flex-none w-72">
+<div class="h-40 rounded-xl overflow-hidden mb-3 relative group">
+<img class="w-full h-full object-cover" data-alt="futuristic cyber security interface with glowing binary code and digital shield icon in dark blue tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAijL0_P1FqgIrP9CSWOLJABnFSgvtATDigJrNe1hNwuKKUTCzeX_iCc73HtXy6wSspUdeajsXVyryje8gkCvr0Ka1Z0_m1CX3VAj1462JWxnmyMt8_37-Kut5L54ncHmjCQ6hMu3fLLvBnvHzHLsi2f9_91RcUe977vLAV8RcKprQqTqnsw1dD0qQwcZhxy6Ut2V0cthTnlTUejLH5xKoMeJhXgNCxzGPwp-0EqjlvXi859WwzZW03yP6P3pQIrRjI55A3ojNIZQIs"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white text-4xl" data-icon="play_circle">play_circle</span>
+</div>
+<div class="absolute bottom-2 right-2 bg-black/70 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">12:05</div>
+</div>
+<h5 class="font-bold text-sm light-theme-text-primary mb-1 line-clamp-1">Web Security Fundamentals 2024</h5>
+<p class="text-xs light-theme-text-secondary">Saved 1 week ago • Fireship</p>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-[#131313] fixed bottom-0 w-full z-50 h-[56px] border-t border-[#262626]/15 shadow-[0px_-4px_16px_rgba(0,0,0,0.4)] flex justify-around items-center px-4">
+<a class="flex flex-col items-center justify-center text-gray-500 hover:text-[#a8a4ff] transition-all tap-highlight-transparent active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium tracking-[0.05em] uppercase">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-500 hover:text-[#a8a4ff] transition-all tap-highlight-transparent active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="play_circle">play_circle</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium tracking-[0.05em] uppercase">Resume</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#1a1a1a] text-[#a8a4ff] rounded-xl px-3 py-1 transition-all tap-highlight-transparent active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="video_library" style="font-variation-settings: 'FILL' 1;">video_library</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium tracking-[0.05em] uppercase">Library</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-500 hover:text-[#a8a4ff] transition-all tap-highlight-transparent active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium tracking-[0.05em] uppercase">Profile</span>
+</a>
+</nav>
+</body></html>

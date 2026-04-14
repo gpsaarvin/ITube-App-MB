@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>iTube Learn - Video Player</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0e0e0e;
+            color: #ffffff;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-panel {
+            background: rgba(38, 38, 38, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-high": "#20201f",
+                      "surface-container-low": "#131313",
+                      "primary": "#a8a4ff",
+                      "primary-dim": "#675df9",
+                      "error-container": "#a70138",
+                      "tertiary-container": "#f8a826",
+                      "on-secondary": "#005f26",
+                      "error": "#ff6e84",
+                      "on-primary-container": "#16007d",
+                      "background": "#0e0e0e",
+                      "on-primary-fixed-variant": "#1d0098",
+                      "inverse-primary": "#5044e3",
+                      "primary-fixed": "#9995ff",
+                      "secondary-dim": "#63ef82",
+                      "tertiary-dim": "#e89b14",
+                      "surface-tint": "#a8a4ff",
+                      "on-surface": "#ffffff",
+                      "primary-container": "#9995ff",
+                      "primary-fixed-dim": "#8a85ff",
+                      "on-primary": "#1e009f",
+                      "on-error": "#490013",
+                      "secondary-container": "#006e2d",
+                      "outline": "#767575",
+                      "inverse-surface": "#fcf9f8",
+                      "surface-dim": "#0e0e0e",
+                      "on-secondary-fixed": "#004a1c",
+                      "on-tertiary": "#5a3900",
+                      "outline-variant": "#484847",
+                      "surface-variant": "#262626",
+                      "inverse-on-surface": "#565555",
+                      "on-tertiary-fixed-variant": "#593800",
+                      "on-surface-variant": "#adaaaa",
+                      "on-background": "#ffffff",
+                      "on-tertiary-fixed": "#301c00",
+                      "tertiary-fixed-dim": "#e89b14",
+                      "on-secondary-fixed-variant": "#006a2b",
+                      "on-primary-fixed": "#000000",
+                      "error-dim": "#d73357",
+                      "surface-container": "#1a1a1a",
+                      "surface": "#0e0e0e",
+                      "secondary-fixed": "#72fe8f",
+                      "tertiary-fixed": "#f8a826",
+                      "secondary": "#72fe8f",
+                      "surface-container-lowest": "#000000",
+                      "on-error-container": "#ffb2b9",
+                      "surface-container-highest": "#262626",
+                      "surface-bright": "#2c2c2c",
+                      "on-tertiary-container": "#4e3000",
+                      "secondary-fixed-dim": "#63ef82",
+                      "on-secondary-container": "#e4ffe1",
+                      "tertiary": "#ffb955"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Plus Jakarta Sans"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-24">
+<!-- Top Navigation Anchor (Suppressing SideNav for focused video journey) -->
+<header class="bg-[#0e0e0e] docked full-width top-0 sticky z-50 flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-xl bg-surface-container-highest transition-colors active:scale-95">
+<span class="material-symbols-outlined text-on-surface">arrow_back</span>
+</button>
+<div class="text-xl font-headline font-bold text-[#a8a4ff] tracking-tight">iTube Learn</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center overflow-hidden border border-outline-variant/20">
+<img alt="user profile picture" data-alt="close up of a professional male student avatar with glasses and a friendly smile on a clean background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqgsaW0w-z9fqZCM7U-eY5xPpLmtKsxwmyTZwdG3rWq5tLiOuOahkzWygRnIbGvRbRfBH2bDDW_9PZzD6JDku2OoSQjOaznbtddHajXY0NcXGnTIU6KU9OH1wdJ-50GCoXdBREHYx0_T6IyFQsBGbK5mzppYGknUbUamzdPIjrvhwKgBl7KOdVPpYZsYNhTOsV6yHbTOaCjnWzBPDPM1br192d6LClRqbg0sK2H-QYg3FPnR_kwMDujnUH_imCARzLCqvb3LcaI-bI"/>
+</div>
+<span class="material-symbols-outlined text-[#a8a4ff] hover:bg-[#1a1a1a] transition-colors p-2 rounded-lg">search</span>
+</div>
+</header>
+<main class="w-full">
+<!-- Full-Width Video Player Section -->
+<section class="relative w-full aspect-video bg-surface-container-lowest">
+<div class="absolute inset-0 flex items-center justify-center group cursor-pointer">
+<img class="w-full h-full object-cover opacity-60" data-alt="professional wide screen software development environment with clean code and glowing syntax highlighting on dark monitors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCosBcrFGsaMScM9Z0YS6l6Ja1MRxEQacWhZi1AZosnxees0aCupZ0-91b3gEi5hMOwbENUY5sNIBeHRrF5f7cquPxRF6QZ59IAA9EsKPcInV-HajwavoB5iE1XMbWit4_s9k_EOACkQWZeLCzdaEqUJUEX6DYc-eIVtFy15m9jekkhaeLQWYd6TgsXKRrvYtrbohpQCct4H-4WHRiqLySFKroODHdHqYE7PQGREe-GzqqO-hnujZieVhtSdK7w9sEIqrSDM3w4oJZM"/>
+<!-- Video Controls Overlay (Simulation) -->
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-4 md:p-8">
+<div class="flex items-center justify-between w-full mb-4">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-white text-4xl" data-weight="fill">play_arrow</span>
+<span class="material-symbols-outlined text-white text-3xl">skip_next</span>
+<span class="material-symbols-outlined text-white text-3xl">volume_up</span>
+<div class="text-sm font-label font-medium text-white/90">08:24 / 15:45</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-white text-2xl">closed_caption</span>
+<span class="material-symbols-outlined text-white text-2xl">settings</span>
+<span class="material-symbols-outlined text-white text-2xl">fullscreen</span>
+</div>
+</div>
+<div class="w-full h-1 bg-white/20 rounded-full overflow-hidden mb-2">
+<div class="h-full w-[54%] bg-primary shadow-[0_0_8px_rgba(168,164,255,0.6)]"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Video Metadata & Content -->
+<div class="max-w-6xl mx-auto px-6 py-8 grid grid-cols-1 lg:grid-cols-3 gap-12">
+<!-- Left Column: Video Details -->
+<div class="lg:col-span-2 space-y-8">
+<div>
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container rounded-full mb-4">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="text-[10px] font-label font-semibold uppercase tracking-widest text-secondary-dim">Current Module</span>
+</div>
+<h1 class="text-3xl md:text-4xl font-headline font-extrabold text-on-surface leading-tight tracking-tight mb-4">
+                        Mastering React Server Components and Data Fetching
+                    </h1>
+<div class="flex flex-wrap items-center gap-6 text-on-surface-variant mb-6">
+<div class="flex items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden border border-outline-variant/10">
+<img alt="Channel Logo" data-alt="minimal geometric circular logo for an educational channel using shades of blue and purple" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSMFM-Edg46JCs4eGv4p6W2v2GQYe0VCoCldhi6rRph1jkzRa0_pu1qmxPAbDrkgED0yXJqpbySqF09gOzwrzYOVNxkh2W3gPfVtzhxTGz9SeIP9NSDcZKY4aI3_W262hAQN03pxKPxVVW3bpp8jOqe55G6nh8ruJstIrg-Z1awGhz_dVzqGSUIQFP4oLHf9U25TjGWt3bW8TdXtUk422mFWZJeq3ry24ulMqMEINPtrviGzXo-MLObB9-hvv-ozPd9Jx1kEtn2mVq"/>
+</div>
+<div>
+<div class="text-sm font-bold text-on-surface">Editorial Intelligence</div>
+<div class="text-[11px] font-label font-medium text-on-surface-variant">2.4M subscribers</div>
+</div>
+</div>
+<div class="h-6 w-px bg-outline-variant/20 hidden md:block"></div>
+<div class="text-sm font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-lg">schedule</span> 15:45 duration
+                        </div>
+<div class="text-sm font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-lg">visibility</span> 124K views
+                        </div>
+</div>
+<div class="p-6 bg-surface-container-low rounded-xl border-l-4 border-primary/40">
+<div class="text-xs font-label font-bold text-primary mb-2 uppercase tracking-tighter">From Roadmap: Frontend Mastery 2024</div>
+<p class="text-on-surface-variant leading-relaxed font-body">
+                            Topic: <span class="text-on-surface font-semibold">Phase 4: Advanced React Patterns</span>. In this session, we dive deep into how RSCs change the paradigm of client-side architecture. This is a critical step in your journey to becoming a Senior Engineer.
+                        </p>
+</div>
+</div>
+<!-- Interaction Bar -->
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 px-6 py-3 bg-gradient-to-br from-primary to-primary-dim rounded-full font-headline font-bold text-sm shadow-lg active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-on-primary">bookmark</span>
+                        Save to Library
+                    </button>
+<button class="flex items-center gap-2 px-6 py-3 bg-surface-container-highest rounded-full font-headline font-bold text-sm text-on-surface active:scale-95 transition-transform">
+<span class="material-symbols-outlined">share</span>
+                        Share
+                    </button>
+<button class="ml-auto flex items-center justify-center w-12 h-12 bg-surface-container-low rounded-xl text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+</div>
+<!-- Right Column: Up Next / Curriculum -->
+<div class="space-y-6">
+<div class="flex items-center justify-between mb-2">
+<h2 class="text-xl font-headline font-extrabold tracking-tight text-on-surface">Up Next</h2>
+<span class="text-[10px] font-label font-bold text-primary uppercase tracking-widest">3 topics remaining</span>
+</div>
+<div class="space-y-4">
+<!-- Topic Row 1 -->
+<div class="group flex gap-4 p-3 bg-surface-container-low hover:bg-surface-container rounded-xl transition-all cursor-pointer border-l-2 border-transparent hover:border-primary/40">
+<div class="relative w-32 aspect-video shrink-0 rounded-lg overflow-hidden bg-surface-container-highest">
+<img class="w-full h-full object-cover grayscale-[40%] group-hover:grayscale-0 transition-all" data-alt="macro close-up of a high-tech circuit board with glowing neon purple accents and futuristic lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-Ozdavxd_qSxRixlM7TOQFfC0YUUidPztkZ50EeVPiNTf3whV0EyFTddG3xzMc9Z5GOBpc53sc7DLaT3gIzTafYwSmUKjAI77Y57OK6B9EJx6sYq3kRnKaFRqcEzupPV48daV5LidGS67kR2H2bt8fzP3KA69ueX6upq1kVDpmrLd7f6teA5-czogG4cBV4UHoHVVCnjVNBHiby0-l774k9k6e25mvKZsLqBIj3NdGggl4bcYByBRxVD0XWy0UfN_X1T4BhPTLHeh"/>
+<div class="absolute bottom-1 right-1 px-1.5 py-0.5 bg-black/80 rounded text-[9px] font-bold">12:10</div>
+</div>
+<div class="flex flex-col justify-between py-0.5">
+<h3 class="text-sm font-bold text-on-surface line-clamp-2 leading-snug">State Management with Redux Toolkit in 2024</h3>
+<div class="text-[11px] font-label font-medium text-on-surface-variant uppercase tracking-wider">Module 4.2</div>
+</div>
+</div>
+<!-- Topic Row 2 -->
+<div class="group flex gap-4 p-3 bg-surface-container-low hover:bg-surface-container rounded-xl transition-all cursor-pointer border-l-2 border-transparent hover:border-primary/40">
+<div class="relative w-32 aspect-video shrink-0 rounded-lg overflow-hidden bg-surface-container-highest">
+<img class="w-full h-full object-cover grayscale-[40%] group-hover:grayscale-0 transition-all" data-alt="aesthetic minimalist developer desk setup with a mechanical keyboard and soft ambient violet lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDd_LxkYxGnvKS6kyGfuWHtjswY59PG_a7gluTQCY59ZlAZALDj2Nnn3BWSycLlno2S41E4v24KuR7aLwRyGc8sOBMv9d_8S2Jrg6YRwCps9iPXOc9t3vYRBnBybGksC8w7BzqOJZ39aJHWsPgrI_xXpSJm3lPrlYsnOZ8xvSUfbF5qeNNqPjf77N9cEU_iYFq4Ff2qjqgk2GCP94yXRjIMqTwmFp5usSzo19iGAI8kYKjZNWk1ooY9s1xq4y2kSCl-48-IoHTwap9O"/>
+<div class="absolute bottom-1 right-1 px-1.5 py-0.5 bg-black/80 rounded text-[9px] font-bold">18:45</div>
+</div>
+<div class="flex flex-col justify-between py-0.5">
+<h3 class="text-sm font-bold text-on-surface line-clamp-2 leading-snug">Performance Profiling and Optimization Strategies</h3>
+<div class="text-[11px] font-label font-medium text-on-surface-variant uppercase tracking-wider">Module 4.3</div>
+</div>
+</div>
+<!-- Topic Row 3 -->
+<div class="group flex gap-4 p-3 bg-surface-container-low hover:bg-surface-container rounded-xl transition-all cursor-pointer border-l-2 border-transparent hover:border-primary/40">
+<div class="relative w-32 aspect-video shrink-0 rounded-lg overflow-hidden bg-surface-container-highest">
+<img class="w-full h-full object-cover grayscale-[40%] group-hover:grayscale-0 transition-all" data-alt="creative workspace with a laptop displaying clean code surrounded by blurred indoor plants and warm natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyGKwuS-3FjkspIYXyWQgklnHXVe7HO5Z0oOGHYuo71z9Y3kV4GTQtpkZnmFoTLLJqlgO8BmlCeHs9JpbPWKabpJchX1FhKaLQuX_uQ6xJbcV_SHpLAJzTPPJpdyAeNnAlXtenZuB1f1wrYFy4CUs52wzKshT2AZe9xpFiFCXUkSnUO3fLRGb17yWt8ILxla7p67MV5gBTPUcmgHJ3XtRcb0ll-RMqAxD1CoyhadnFKQcCw8wh1c1RZFBMmuoBLjq_FNKtNAfTmrPU"/>
+<div class="absolute bottom-1 right-1 px-1.5 py-0.5 bg-black/80 rounded text-[9px] font-bold">09:30</div>
+</div>
+<div class="flex flex-col justify-between py-0.5">
+<h3 class="text-sm font-bold text-on-surface line-clamp-2 leading-snug">Deploying to the Edge: Vercel vs AWS</h3>
+<div class="text-[11px] font-label font-medium text-on-surface-variant uppercase tracking-wider">Module 4.4</div>
+</div>
+</div>
+</div>
+<!-- Next Phase Preview Card -->
+<div class="mt-8 p-6 glass-panel rounded-xl border border-primary/10">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-secondary" data-weight="fill">verified</span>
+<span class="text-sm font-headline font-bold text-on-surface">Phase 5 Unlocked Soon</span>
+</div>
+<div class="h-1.5 w-full bg-white/10 rounded-full mb-3">
+<div class="h-full w-[85%] bg-gradient-to-r from-primary to-secondary rounded-full"></div>
+</div>
+<p class="text-[11px] font-body text-on-surface-variant leading-relaxed">
+                        Complete these 3 topics to unlock "Advanced System Design for Frontend Architects."
+                    </p>
+</div>
+</div>
+</div>
+</main>
+<!-- Navigation Shell (BottomNavBar for Mobile Navigation context) -->
+<nav class="fixed bottom-0 w-full z-50 h-[56px] bg-[#131313] border-t border-[#262626]/15 shadow-[0px_-4px_16px_rgba(0,0,0,0.4)] flex justify-around items-center px-4">
+<div class="flex flex-col items-center justify-center text-gray-500 hover:text-[#a8a4ff] transition-all tap-highlight-transparent active:scale-90">
+<span class="material-symbols-outlined">home</span>
+<span class="font-headline text-[10px] font-medium tracking-[0.05em] uppercase">Home</span>
+</div>
+<!-- Active Tab: Resume -->
+<div class="flex flex-col items-center justify-center bg-[#1a1a1a] text-[#a8a4ff] rounded-xl px-3 py-1 transition-all active:scale-90">
+<span class="material-symbols-outlined" data-weight="fill">play_circle</span>
+<span class="font-headline text-[10px] font-medium tracking-[0.05em] uppercase">Resume</span>
+</div>
+<div class="flex flex-col items-center justify-center text-gray-500 hover:text-[#a8a4ff] transition-all tap-highlight-transparent active:scale-90">
+<span class="material-symbols-outlined">video_library</span>
+<span class="font-headline text-[10px] font-medium tracking-[0.05em] uppercase">Library</span>
+</div>
+<div class="flex flex-col items-center justify-center text-gray-500 hover:text-[#a8a4ff] transition-all tap-highlight-transparent active:scale-90">
+<span class="material-symbols-outlined">person</span>
+<span class="font-headline text-[10px] font-medium tracking-[0.05em] uppercase">Profile</span>
+</div>
+</nav>
+</body></html>
