@@ -221,9 +221,7 @@ class RoadmapGenerationNotifier extends AsyncNotifier<RoadmapModel?> {
             topicIndex: topicIndex,
             video: video,
           );
-          if (ref.mounted) {
-            state = AsyncData(current);
-          }
+          state = AsyncData(current);
         }
       }
     }
