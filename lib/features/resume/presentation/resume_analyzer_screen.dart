@@ -21,8 +21,7 @@ class ResumeAnalyzerScreen extends ConsumerStatefulWidget {
       _ResumeAnalyzerScreenState();
 }
 
-class _ResumeAnalyzerScreenState
-    extends ConsumerState<ResumeAnalyzerScreen> {
+class _ResumeAnalyzerScreenState extends ConsumerState<ResumeAnalyzerScreen> {
   PlatformFile? _selectedFile;
   bool _extracting = false;
   final TextEditingController _jobRoleController = TextEditingController();
@@ -45,16 +44,18 @@ class _ResumeAnalyzerScreenState
       if (text.trim().length < 20) {
         throw Exception('Resume text is too short to analyze.');
       }
-      await ref.read(resumeAnalysisNotifierProvider.notifier).analyze(
+      await ref
+          .read(resumeAnalysisNotifierProvider.notifier)
+          .analyze(
             resumeText: text,
             jobRole: _jobRoleController.text.trim(),
             fileName: _selectedFile!.name,
           );
     } catch (error) {
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Analysis failed: $error')),
-        );
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('Analysis failed: $error')));
       }
     } finally {
       if (mounted) setState(() => _extracting = false);
@@ -117,9 +118,9 @@ class _ResumeAnalyzerScreenState
     );
     await file.writeAsString(const JsonEncoder.withIndent('  ').convert(json));
     if (!mounted) return;
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Report saved to ${file.path}')),
-    );
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(SnackBar(content: Text('Report saved to ${file.path}')));
   }
 
   @override
@@ -275,17 +276,16 @@ class _ResumeAnalyzerScreenState
             children: [
               Text(
                 'Upload PDF or TXT',
-                style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                      fontWeight: FontWeight.w600,
-                    ),
+                style: Theme.of(
+                  context,
+                ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w600),
               ),
               const SizedBox(height: 6),
               Text(
                 _selectedFile?.name ?? 'Tap to select a file',
-                style: Theme.of(context)
-                    .textTheme
-                    .bodySmall
-                    ?.copyWith(color: AppColors.mutedText),
+                style: Theme.of(
+                  context,
+                ).textTheme.bodySmall?.copyWith(color: AppColors.mutedText),
               ),
             ],
           ),
@@ -299,10 +299,9 @@ class _ResumeAnalyzerScreenState
       padding: const EdgeInsets.symmetric(vertical: 24),
       child: Text(
         'No analysis yet. Upload a resume to get started.',
-        style: Theme.of(context)
-            .textTheme
-            .bodyMedium
-            ?.copyWith(color: AppColors.mutedText),
+        style: Theme.of(
+          context,
+        ).textTheme.bodyMedium?.copyWith(color: AppColors.mutedText),
       ),
     );
   }
@@ -324,8 +323,8 @@ class ScoreGauge extends StatelessWidget {
     final color = score >= 70
         ? Colors.green
         : score >= 40
-            ? Colors.amber
-            : Colors.redAccent;
+        ? Colors.amber
+        : Colors.redAccent;
     return Column(
       children: [
         SizedBox(
@@ -336,10 +335,9 @@ class ScoreGauge extends StatelessWidget {
             child: Center(
               child: Text(
                 '$score',
-                style: Theme.of(context)
-                    .textTheme
-                    .headlineMedium
-                    ?.copyWith(fontWeight: FontWeight.w700),
+                style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                  fontWeight: FontWeight.w700,
+                ),
               ),
             ),
           ),
@@ -347,10 +345,9 @@ class ScoreGauge extends StatelessWidget {
         const SizedBox(height: 8),
         Text(
           'ATS Compatibility Score',
-          style: Theme.of(context)
-              .textTheme
-              .bodyMedium
-              ?.copyWith(color: AppColors.mutedText),
+          style: Theme.of(
+            context,
+          ).textTheme.bodyMedium?.copyWith(color: AppColors.mutedText),
         ),
       ],
     );

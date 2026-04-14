@@ -11,19 +11,19 @@ final openRouterServiceProvider = Provider<OpenRouterService>((ref) {
 
 class OpenRouterService {
   OpenRouterService()
-      : _dio = Dio(
-          BaseOptions(
-            baseUrl: ApiConstants.openRouterBaseUrl,
-            connectTimeout: const Duration(seconds: 20),
-            receiveTimeout: const Duration(seconds: 30),
-            headers: {
-              'Authorization': 'Bearer ${ApiConstants.openRouterApiKey}',
-              'HTTP-Referer': 'https://itubelearn.app',
-              'X-Title': 'iTube Learn',
-              'Content-Type': 'application/json',
-            },
-          ),
-        );
+    : _dio = Dio(
+        BaseOptions(
+          baseUrl: ApiConstants.openRouterBaseUrl,
+          connectTimeout: const Duration(seconds: 20),
+          receiveTimeout: const Duration(seconds: 30),
+          headers: {
+            'Authorization': 'Bearer ${ApiConstants.openRouterApiKey}',
+            'HTTP-Referer': 'https://itubelearn.app',
+            'X-Title': 'iTube Learn',
+            'Content-Type': 'application/json',
+          },
+        ),
+      );
 
   final Dio _dio;
 
@@ -76,7 +76,8 @@ class OpenRouterService {
   }
 
   Map<String, dynamic> _extractJson(dynamic data) {
-    final content = data['choices']?[0]?['message']?['content']?.toString() ?? '';
+    final content =
+        data['choices']?[0]?['message']?['content']?.toString() ?? '';
     final jsonString = _extractJsonString(content);
     return json.decode(jsonString) as Map<String, dynamic>;
   }

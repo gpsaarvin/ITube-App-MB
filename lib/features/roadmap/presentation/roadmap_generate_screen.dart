@@ -21,8 +21,7 @@ class RoadmapGenerateScreen extends ConsumerStatefulWidget {
       _RoadmapGenerateScreenState();
 }
 
-class _RoadmapGenerateScreenState
-    extends ConsumerState<RoadmapGenerateScreen> {
+class _RoadmapGenerateScreenState extends ConsumerState<RoadmapGenerateScreen> {
   late final TextEditingController _controller;
   final ContentFilter _contentFilter = ContentFilter();
 
@@ -64,9 +63,9 @@ class _RoadmapGenerateScreenState
         .read(roadmapRepositoryProvider)
         .setAddedToLearning(roadmap.id, true);
     if (!mounted) return;
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Saved to your library.')),
-    );
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(const SnackBar(content: Text('Saved to your library.')));
   }
 
   @override
@@ -75,9 +74,7 @@ class _RoadmapGenerateScreenState
     final roadmap = roadmapAsync.valueOrNull;
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Generate Roadmap'),
-      ),
+      appBar: AppBar(title: const Text('Generate Roadmap')),
       floatingActionButton: roadmap == null
           ? null
           : FloatingActionButton.extended(
@@ -134,9 +131,9 @@ class _RoadmapGenerateScreenState
         const SizedBox(height: 12),
         Text(
           'Building your roadmap...',
-          style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                fontWeight: FontWeight.w600,
-              ),
+          style: Theme.of(
+            context,
+          ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),
         ),
       ],
     );
@@ -166,10 +163,9 @@ class _RoadmapGenerateScreenState
         const SizedBox(height: 8),
         Text(
           'We will design a structured roadmap and match the best YouTube tutorials for each phase.',
-          style: Theme.of(context)
-              .textTheme
-              .bodyMedium
-              ?.copyWith(color: AppColors.mutedText),
+          style: Theme.of(
+            context,
+          ).textTheme.bodyMedium?.copyWith(color: AppColors.mutedText),
         ),
       ],
     );
@@ -181,9 +177,9 @@ class _RoadmapGenerateScreenState
       children: [
         Text(
           roadmap.title,
-          style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                fontWeight: FontWeight.w700,
-              ),
+          style: Theme.of(
+            context,
+          ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700),
         ),
         const SizedBox(height: 16),
         ...roadmap.phases.asMap().entries.map((entry) {
@@ -200,18 +196,16 @@ class _RoadmapGenerateScreenState
                   children: [
                     Text(
                       topic.title,
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleSmall
-                          ?.copyWith(fontWeight: FontWeight.w600),
+                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                     const SizedBox(height: 4),
                     Text(
                       topic.description,
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodySmall
-                          ?.copyWith(color: AppColors.mutedText),
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                        color: AppColors.mutedText,
+                      ),
                     ),
                     const SizedBox(height: 8),
                     if (topic.video == null)

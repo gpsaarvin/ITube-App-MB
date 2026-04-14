@@ -9,11 +9,7 @@ class NotificationPrefs {
   final bool push;
   final bool weeklySummary;
 
-  NotificationPrefs copyWith({
-    bool? email,
-    bool? push,
-    bool? weeklySummary,
-  }) {
+  NotificationPrefs copyWith({bool? email, bool? push, bool? weeklySummary}) {
     return NotificationPrefs(
       email: email ?? this.email,
       push: push ?? this.push,
@@ -23,7 +19,11 @@ class NotificationPrefs {
 
   factory NotificationPrefs.fromJson(Map<String, dynamic>? json) {
     if (json == null) {
-      return const NotificationPrefs(email: true, push: true, weeklySummary: true);
+      return const NotificationPrefs(
+        email: true,
+        push: true,
+        weeklySummary: true,
+      );
     }
     return NotificationPrefs(
       email: (json['email'] ?? true) as bool,
@@ -33,11 +33,7 @@ class NotificationPrefs {
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'email': email,
-      'push': push,
-      'weeklySummary': weeklySummary,
-    };
+    return {'email': email, 'push': push, 'weeklySummary': weeklySummary};
   }
 }
 
@@ -127,8 +123,9 @@ class UserProfileModel {
       certificates: (json['certificates'] as List<dynamic>? ?? [])
           .map((item) => item.toString())
           .toList(),
-      notificationPrefs:
-          NotificationPrefs.fromJson(json['notificationPrefs'] as Map<String, dynamic>?),
+      notificationPrefs: NotificationPrefs.fromJson(
+        json['notificationPrefs'] as Map<String, dynamic>?,
+      ),
     );
   }
 

@@ -14,13 +14,13 @@ final youTubeServiceProvider = Provider<YouTubeService>((ref) {
 
 class YouTubeService {
   YouTubeService()
-      : _dio = Dio(
-          BaseOptions(
-            baseUrl: 'https://www.googleapis.com/youtube/v3',
-            connectTimeout: const Duration(seconds: 15),
-            receiveTimeout: const Duration(seconds: 20),
-          ),
-        );
+    : _dio = Dio(
+        BaseOptions(
+          baseUrl: 'https://www.googleapis.com/youtube/v3',
+          connectTimeout: const Duration(seconds: 15),
+          receiveTimeout: const Duration(seconds: 20),
+        ),
+      );
 
   final Dio _dio;
   final ContentFilter _contentFilter = ContentFilter();
@@ -89,8 +89,9 @@ class YouTubeService {
       if (videoId.isEmpty) return null;
 
       final thumbnails = (snippet['thumbnails'] ?? {}) as Map<String, dynamic>;
-      final thumbnail = (thumbnails['high'] ?? thumbnails['medium'] ?? {})
-          as Map<String, dynamic>;
+      final thumbnail =
+          (thumbnails['high'] ?? thumbnails['medium'] ?? {})
+              as Map<String, dynamic>;
       final duration = await _fetchDuration(videoId);
 
       return VideoModel(
@@ -118,8 +119,9 @@ class YouTubeService {
       );
       final items = response.data['items'] as List<dynamic>? ?? [];
       if (items.isEmpty) return '0:00';
-      final content = (items.first as Map<String, dynamic>)['contentDetails']
-          as Map<String, dynamic>;
+      final content =
+          (items.first as Map<String, dynamic>)['contentDetails']
+              as Map<String, dynamic>;
       final isoDuration = content['duration']?.toString() ?? '';
       return _formatIsoDuration(isoDuration);
     } catch (_) {

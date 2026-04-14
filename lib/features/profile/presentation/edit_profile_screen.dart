@@ -68,16 +68,18 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
       Navigator.of(context).pop();
     } catch (error) {
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Save failed: $error')),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('Save failed: $error')));
     } finally {
       if (mounted) setState(() => _saving = false);
     }
   }
 
   Future<String> _uploadPhoto(String userId, Uint8List bytes) {
-    return ref.read(profileRepositoryProvider).uploadProfilePhoto(userId, bytes);
+    return ref
+        .read(profileRepositoryProvider)
+        .uploadProfilePhoto(userId, bytes);
   }
 
   void _initialize(UserProfileModel profile) {
@@ -111,13 +113,12 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
                       CircleAvatar(
                         radius: 48,
                         backgroundImage: _selectedImage != null
-                            ? FileImage(
-                                File(_selectedImage!.path),
-                              )
+                            ? FileImage(File(_selectedImage!.path))
                             : profile.photoURL.isNotEmpty
-                                ? NetworkImage(profile.photoURL) as ImageProvider
-                                : null,
-                        child: profile.photoURL.isEmpty && _selectedImage == null
+                            ? NetworkImage(profile.photoURL) as ImageProvider
+                            : null,
+                        child:
+                            profile.photoURL.isEmpty && _selectedImage == null
                             ? const Icon(Icons.person, size: 40)
                             : null,
                       ),

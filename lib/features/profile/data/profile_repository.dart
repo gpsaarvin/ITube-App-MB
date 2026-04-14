@@ -26,8 +26,8 @@ class ProfileRepository {
   ProfileRepository({
     required FirebaseFirestore firestore,
     required FirebaseStorage storage,
-  })  : _firestore = firestore,
-        _storage = storage;
+  }) : _firestore = firestore,
+       _storage = storage;
 
   final FirebaseFirestore _firestore;
   final FirebaseStorage _storage;
@@ -58,10 +58,7 @@ class ProfileRepository {
 
   Future<String> uploadProfilePhoto(String userId, Uint8List bytes) async {
     final ref = _storage.ref('profile_photos/$userId.jpg');
-    await ref.putData(
-      bytes,
-      SettableMetadata(contentType: 'image/jpeg'),
-    );
+    await ref.putData(bytes, SettableMetadata(contentType: 'image/jpeg'));
     return ref.getDownloadURL();
   }
 
@@ -69,10 +66,7 @@ class ProfileRepository {
     return UserProfileModel(
       userId: user.uid,
       name: user.displayName ?? 'Learner',
-      username: (user.email ?? 'learner')
-          .split('@')
-          .first
-          .replaceAll('.', ''),
+      username: (user.email ?? 'learner').split('@').first.replaceAll('.', ''),
       phone: user.phoneNumber ?? '',
       country: 'Unknown',
       skillLevel: 'Beginner',
@@ -83,8 +77,11 @@ class ProfileRepository {
       completionPercent: 0,
       streakDays: 0,
       certificates: const [],
-      notificationPrefs:
-          const NotificationPrefs(email: true, push: true, weeklySummary: true),
+      notificationPrefs: const NotificationPrefs(
+        email: true,
+        push: true,
+        weeklySummary: true,
+      ),
     );
   }
 }

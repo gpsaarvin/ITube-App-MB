@@ -4,11 +4,7 @@ import '../../../core/constants/app_colors.dart';
 import '../../roadmap/domain/roadmap_model.dart';
 
 class LibraryItemCard extends StatelessWidget {
-  const LibraryItemCard({
-    super.key,
-    required this.roadmap,
-    this.onTap,
-  });
+  const LibraryItemCard({super.key, required this.roadmap, this.onTap});
 
   final RoadmapModel roadmap;
   final VoidCallback? onTap;
@@ -26,9 +22,9 @@ class LibraryItemCard extends StatelessWidget {
             children: [
               Text(
                 roadmap.title,
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.w600,
-                    ),
+                style: Theme.of(
+                  context,
+                ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),
               ),
               const SizedBox(height: 8),
               Row(

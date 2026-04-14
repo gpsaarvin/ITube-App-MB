@@ -18,10 +18,9 @@ class AnalysisResultCard extends StatelessWidget {
       child: ExpansionTile(
         title: Text(
           title,
-          style: Theme.of(context)
-              .textTheme
-              .titleSmall
-              ?.copyWith(fontWeight: FontWeight.w600),
+          style: Theme.of(
+            context,
+          ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w600),
         ),
         children: [
           if (items.isEmpty)
@@ -29,10 +28,9 @@ class AnalysisResultCard extends StatelessWidget {
               padding: const EdgeInsets.all(16),
               child: Text(
                 'No insights available.',
-                style: Theme.of(context)
-                    .textTheme
-                    .bodySmall
-                    ?.copyWith(color: AppColors.mutedText),
+                style: Theme.of(
+                  context,
+                ).textTheme.bodySmall?.copyWith(color: AppColors.mutedText),
               ),
             )
           else

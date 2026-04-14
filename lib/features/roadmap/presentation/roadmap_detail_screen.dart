@@ -14,7 +14,8 @@ class RoadmapDetailScreen extends ConsumerStatefulWidget {
   final String roadmapId;
 
   @override
-  ConsumerState<RoadmapDetailScreen> createState() => _RoadmapDetailScreenState();
+  ConsumerState<RoadmapDetailScreen> createState() =>
+      _RoadmapDetailScreenState();
 }
 
 class _RoadmapDetailScreenState extends ConsumerState<RoadmapDetailScreen> {
@@ -25,9 +26,9 @@ class _RoadmapDetailScreenState extends ConsumerState<RoadmapDetailScreen> {
     await ref.read(roadmapRepositoryProvider).refreshVideos(roadmap);
     if (!mounted) return;
     setState(() => _refreshing = false);
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Videos refreshed.')),
-    );
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(const SnackBar(content: Text('Videos refreshed.')));
   }
 
   Future<void> _toggleWatched(
@@ -36,7 +37,9 @@ class _RoadmapDetailScreenState extends ConsumerState<RoadmapDetailScreen> {
     int topicIndex,
     bool watched,
   ) async {
-    await ref.read(roadmapRepositoryProvider).updateTopicWatched(
+    await ref
+        .read(roadmapRepositoryProvider)
+        .updateTopicWatched(
           roadmap: roadmap,
           phaseIndex: phaseIndex,
           topicIndex: topicIndex,
@@ -78,9 +81,9 @@ class _RoadmapDetailScreenState extends ConsumerState<RoadmapDetailScreen> {
             children: [
               Text(
                 roadmap.title,
-                style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                      fontWeight: FontWeight.w700,
-                    ),
+                style: Theme.of(
+                  context,
+                ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700),
               ),
               const SizedBox(height: 12),
               LinearProgressIndicator(
@@ -93,10 +96,9 @@ class _RoadmapDetailScreenState extends ConsumerState<RoadmapDetailScreen> {
               const SizedBox(height: 8),
               Text(
                 '${roadmap.watchedTopics}/${roadmap.totalTopics} topics watched',
-                style: Theme.of(context)
-                    .textTheme
-                    .bodySmall
-                    ?.copyWith(color: AppColors.mutedText),
+                style: Theme.of(
+                  context,
+                ).textTheme.bodySmall?.copyWith(color: AppColors.mutedText),
               ),
               const SizedBox(height: 16),
               ...roadmap.phases.asMap().entries.map((entry) {

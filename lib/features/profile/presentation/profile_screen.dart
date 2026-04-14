@@ -43,8 +43,13 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
     super.dispose();
   }
 
-  Future<void> _updateProfile(UserProfileModel profile, Map<String, dynamic> fields) async {
-    await ref.read(profileRepositoryProvider).updateFields(profile.userId, fields);
+  Future<void> _updateProfile(
+    UserProfileModel profile,
+    Map<String, dynamic> fields,
+  ) async {
+    await ref
+        .read(profileRepositoryProvider)
+        .updateFields(profile.userId, fields);
   }
 
   ThemeMode _themeFromProfile(UserProfileModel profile) {
@@ -65,8 +70,8 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
       'themePreference': mode == ThemeMode.light
           ? 'light'
           : mode == ThemeMode.dark
-              ? 'dark'
-              : 'system',
+          ? 'dark'
+          : 'system',
     });
   }
 
@@ -114,9 +119,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                       children: [
                         Text(
                           profile.name,
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleLarge
+                          style: Theme.of(context).textTheme.titleLarge
                               ?.copyWith(fontWeight: FontWeight.w700),
                         ),
                         const SizedBox(height: 4),
@@ -131,16 +134,18 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
               const SizedBox(height: 20),
               Text(
                 'Skill level',
-                style: Theme.of(context)
-                    .textTheme
-                    .titleSmall
-                    ?.copyWith(fontWeight: FontWeight.w600),
+                style: Theme.of(
+                  context,
+                ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w600),
               ),
               const SizedBox(height: 8),
               SegmentedButton<String>(
                 segments: const [
                   ButtonSegment(value: 'Beginner', label: Text('Beginner')),
-                  ButtonSegment(value: 'Intermediate', label: Text('Intermediate')),
+                  ButtonSegment(
+                    value: 'Intermediate',
+                    label: Text('Intermediate'),
+                  ),
                   ButtonSegment(value: 'Advanced', label: Text('Advanced')),
                 ],
                 selected: {profile.skillLevel},
@@ -152,10 +157,9 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
               const SizedBox(height: 20),
               Text(
                 'Interests',
-                style: Theme.of(context)
-                    .textTheme
-                    .titleSmall
-                    ?.copyWith(fontWeight: FontWeight.w600),
+                style: Theme.of(
+                  context,
+                ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w600),
               ),
               const SizedBox(height: 8),
               Wrap(
@@ -181,12 +185,14 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
               const SizedBox(height: 20),
               DropdownButtonFormField<String>(
                 value: profile.dailyStudyTime,
-                decoration: const InputDecoration(labelText: 'Daily study time'),
+                decoration: const InputDecoration(
+                  labelText: 'Daily study time',
+                ),
                 items: _studyTimes
-                    .map((time) => DropdownMenuItem(
-                          value: time,
-                          child: Text(time),
-                        ))
+                    .map(
+                      (time) =>
+                          DropdownMenuItem(value: time, child: Text(time)),
+                    )
                     .toList(),
                 onChanged: (value) {
                   if (value == null) return;
@@ -212,10 +218,9 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                     children: [
                       Text(
                         '${profile.completionPercent.toStringAsFixed(0)}% completion',
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleSmall
-                            ?.copyWith(fontWeight: FontWeight.w600),
+                        style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                       const SizedBox(height: 4),
                       Text('${profile.streakDays} day streak'),
@@ -226,10 +231,9 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
               const SizedBox(height: 20),
               Text(
                 'Certificates',
-                style: Theme.of(context)
-                    .textTheme
-                    .titleSmall
-                    ?.copyWith(fontWeight: FontWeight.w600),
+                style: Theme.of(
+                  context,
+                ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w600),
               ),
               const SizedBox(height: 8),
               Wrap(
@@ -240,8 +244,9 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                       (certificate) => Chip(
                         label: Text(certificate),
                         onDeleted: () {
-                          final updated = List<String>.from(profile.certificates)
-                            ..remove(certificate);
+                          final updated = List<String>.from(
+                            profile.certificates,
+                          )..remove(certificate);
                           _updateProfile(profile, {'certificates': updated});
                         },
                       ),
@@ -275,24 +280,25 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
               const SizedBox(height: 20),
               Text(
                 'Notifications',
-                style: Theme.of(context)
-                    .textTheme
-                    .titleSmall
-                    ?.copyWith(fontWeight: FontWeight.w600),
+                style: Theme.of(
+                  context,
+                ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w600),
               ),
               SwitchListTile(
                 value: profile.notificationPrefs.email,
                 onChanged: (value) => _updateProfile(profile, {
-                  'notificationPrefs':
-                      profile.notificationPrefs.copyWith(email: value).toJson(),
+                  'notificationPrefs': profile.notificationPrefs
+                      .copyWith(email: value)
+                      .toJson(),
                 }),
                 title: const Text('Email updates'),
               ),
               SwitchListTile(
                 value: profile.notificationPrefs.push,
                 onChanged: (value) => _updateProfile(profile, {
-                  'notificationPrefs':
-                      profile.notificationPrefs.copyWith(push: value).toJson(),
+                  'notificationPrefs': profile.notificationPrefs
+                      .copyWith(push: value)
+                      .toJson(),
                 }),
                 title: const Text('Push notifications'),
               ),
@@ -308,10 +314,9 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
               const SizedBox(height: 20),
               Text(
                 'Theme',
-                style: Theme.of(context)
-                    .textTheme
-                    .titleSmall
-                    ?.copyWith(fontWeight: FontWeight.w600),
+                style: Theme.of(
+                  context,
+                ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w600),
               ),
               const SizedBox(height: 8),
               SegmentedButton<ThemeMode>(
@@ -321,7 +326,8 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                   ButtonSegment(value: ThemeMode.system, label: Text('System')),
                 ],
                 selected: {themeMode},
-                onSelectionChanged: (selection) => _setTheme(profile, selection.first),
+                onSelectionChanged: (selection) =>
+                    _setTheme(profile, selection.first),
               ),
               const SizedBox(height: 24),
               SizedBox(

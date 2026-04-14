@@ -16,9 +16,7 @@ class LibraryScreen extends ConsumerWidget {
     final roadmapsAsync = ref.watch(libraryRoadmapsProvider);
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Library'),
-      ),
+      appBar: AppBar(title: const Text('Library')),
       body: RefreshIndicator(
         onRefresh: () async => ref.refresh(libraryRoadmapsProvider),
         child: roadmapsAsync.when(
@@ -39,16 +37,15 @@ class LibraryScreen extends ConsumerWidget {
                   Text(
                     'No roadmaps saved yet',
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                          fontWeight: FontWeight.w600,
-                        ),
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                   const SizedBox(height: 6),
                   Text(
                     'Generate one to start learning.',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyMedium
-                        ?.copyWith(color: AppColors.mutedText),
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      color: AppColors.mutedText,
+                    ),
                   ),
                   const SizedBox(height: 16),
                   ElevatedButton(

@@ -20,11 +20,9 @@ class VideoCard extends StatelessWidget {
       }
       return;
     }
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (_) => VideoPlayerScreen(video: video),
-      ),
-    );
+    Navigator.of(
+      context,
+    ).push(MaterialPageRoute(builder: (_) => VideoPlayerScreen(video: video)));
   }
 
   @override
@@ -94,16 +92,15 @@ class VideoCard extends StatelessWidget {
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                            fontWeight: FontWeight.w600,
-                          ),
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                     const SizedBox(height: 6),
                     Text(
                       video.channelName,
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodySmall
-                          ?.copyWith(color: AppColors.mutedText),
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                        color: AppColors.mutedText,
+                      ),
                     ),
                   ],
                 ),
@@ -134,10 +131,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
     super.initState();
     _controller = YoutubePlayerController(
       initialVideoId: widget.video.videoId,
-      flags: const YoutubePlayerFlags(
-        autoPlay: true,
-        enableCaption: true,
-      ),
+      flags: const YoutubePlayerFlags(autoPlay: true, enableCaption: true),
     );
   }
 
@@ -150,9 +144,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.video.title),
-      ),
+      appBar: AppBar(title: Text(widget.video.title)),
       body: YoutubePlayer(
         controller: _controller,
         showVideoProgressIndicator: true,

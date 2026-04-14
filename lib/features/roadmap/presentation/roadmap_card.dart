@@ -4,11 +4,7 @@ import '../domain/roadmap_model.dart';
 import '../../../core/constants/app_colors.dart';
 
 class RoadmapCard extends StatelessWidget {
-  const RoadmapCard({
-    super.key,
-    required this.roadmap,
-    this.onTap,
-  });
+  const RoadmapCard({super.key, required this.roadmap, this.onTap});
 
   final RoadmapModel roadmap;
   final VoidCallback? onTap;
@@ -27,9 +23,9 @@ class RoadmapCard extends StatelessWidget {
             children: [
               Text(
                 roadmap.title,
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.w600,
-                    ),
+                style: Theme.of(
+                  context,
+                ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),
               ),
               const SizedBox(height: 6),
               Row(
@@ -54,10 +50,9 @@ class RoadmapCard extends StatelessWidget {
               const SizedBox(height: 6),
               Text(
                 '${(progress * 100).toStringAsFixed(0)}% completed',
-                style: Theme.of(context)
-                    .textTheme
-                    .bodySmall
-                    ?.copyWith(color: AppColors.mutedText),
+                style: Theme.of(
+                  context,
+                ).textTheme.bodySmall?.copyWith(color: AppColors.mutedText),
               ),
             ],
           ),

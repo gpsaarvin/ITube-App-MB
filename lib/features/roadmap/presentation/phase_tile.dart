@@ -20,9 +20,9 @@ class PhaseTile extends StatelessWidget {
       child: ExpansionTile(
         title: Text(
           'Phase ${index + 1}: ${phase.title}',
-          style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                fontWeight: FontWeight.w600,
-              ),
+          style: Theme.of(
+            context,
+          ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),
         ),
         subtitle: Text(phase.description),
         children: children,

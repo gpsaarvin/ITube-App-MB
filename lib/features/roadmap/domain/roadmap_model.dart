@@ -21,13 +21,13 @@ class RoadmapModel {
   final bool addedToLearning;
   final DateTime createdAt;
 
-  int get totalTopics => phases.fold(0, (sum, phase) => sum + phase.topics.length);
+  int get totalTopics =>
+      phases.fold(0, (sum, phase) => sum + phase.topics.length);
 
   int get watchedTopics => phases.fold(
-        0,
-        (sum, phase) =>
-            sum + phase.topics.where((topic) => topic.isWatched).length,
-      );
+    0,
+    (sum, phase) => sum + phase.topics.where((topic) => topic.isWatched).length,
+  );
 
   double get progress => totalTopics == 0 ? 0 : watchedTopics / totalTopics;
 

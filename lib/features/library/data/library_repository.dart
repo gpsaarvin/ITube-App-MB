@@ -13,9 +13,7 @@ final libraryRepositoryProvider = Provider<LibraryRepository>((ref) {
 final libraryRoadmapsProvider = StreamProvider<List<RoadmapModel>>((ref) {
   final user = ref.watch(authStateProvider).valueOrNull;
   if (user == null) return const Stream.empty();
-  return ref
-      .watch(libraryRepositoryProvider)
-      .watchLibraryRoadmaps(user.uid);
+  return ref.watch(libraryRepositoryProvider).watchLibraryRoadmaps(user.uid);
 });
 
 class LibraryRepository {

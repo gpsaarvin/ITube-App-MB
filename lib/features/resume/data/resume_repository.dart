@@ -16,8 +16,8 @@ final resumeRepositoryProvider = Provider<ResumeRepository>((ref) {
 
 final resumeAnalysisNotifierProvider =
     AsyncNotifierProvider<ResumeAnalysisNotifier, ResumeAnalysisModel?>(
-  ResumeAnalysisNotifier.new,
-);
+      ResumeAnalysisNotifier.new,
+    );
 
 final resumeHistoryProvider = StreamProvider<List<ResumeAnalysisModel>>((ref) {
   final user = ref.watch(authStateProvider).valueOrNull;
@@ -29,8 +29,8 @@ class ResumeRepository {
   ResumeRepository({
     required FirebaseFirestore firestore,
     required OpenRouterService openRouterService,
-  })  : _firestore = firestore,
-        _openRouterService = openRouterService;
+  }) : _firestore = firestore,
+       _openRouterService = openRouterService;
 
   final FirebaseFirestore _firestore;
   final OpenRouterService _openRouterService;

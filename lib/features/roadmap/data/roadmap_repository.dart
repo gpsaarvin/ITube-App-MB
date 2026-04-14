@@ -26,17 +26,17 @@ final roadmapStreamProvider = StreamProvider.family<RoadmapModel?, String>(
 
 final roadmapGenerationProvider =
     AsyncNotifierProvider<RoadmapGenerationNotifier, RoadmapModel?>(
-  RoadmapGenerationNotifier.new,
-);
+      RoadmapGenerationNotifier.new,
+    );
 
 class RoadmapRepository {
   RoadmapRepository({
     required FirebaseFirestore firestore,
     required OpenRouterService openRouterService,
     required YouTubeService youTubeService,
-  })  : _firestore = firestore,
-        _openRouterService = openRouterService,
-        _youTubeService = youTubeService;
+  }) : _firestore = firestore,
+       _openRouterService = openRouterService,
+       _youTubeService = youTubeService;
 
   final FirebaseFirestore _firestore;
   final OpenRouterService _openRouterService;
@@ -91,7 +91,10 @@ class RoadmapRepository {
     if (onlyLearning) {
       query = query.where('addedToLearning', isEqualTo: true);
     }
-    return query.orderBy('createdAt', descending: true).snapshots().map(
+    return query
+        .orderBy('createdAt', descending: true)
+        .snapshots()
+        .map(
           (snapshot) => snapshot.docs
               .map((doc) => RoadmapModel.fromJson(doc.data(), doc.id))
               .toList(),
