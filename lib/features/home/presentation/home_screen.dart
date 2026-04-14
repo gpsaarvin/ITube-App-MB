@@ -31,8 +31,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   ];
 
   Future<void> _refresh() async {
-    ref.refresh(libraryRoadmapsProvider);
-    ref.refresh(resumeHistoryProvider);
+    ref.invalidate(libraryRoadmapsProvider);
+    ref.invalidate(resumeHistoryProvider);
   }
 
   void _goToGenerate(String topic) {
